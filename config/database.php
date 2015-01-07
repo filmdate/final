@@ -13,7 +13,7 @@
 	    $bd=$conexion->openshift_ncp648lb_i71frbbr;
 
 	    // Establecemos la colección (tabla)
-	    $collection=$bd->usuarios;
+	    $collection=$bd->usuarios;;
     	    
 	}
 	catch(MongoConnectionException $e){
