@@ -144,8 +144,7 @@
 
 						if($movie=="poster"){
 
-							$poster=$dato;
-							echo "<a href='perfil-peli.php'><img src=$poster></a>";
+							$poster=$dato;						
 
 						}
 
@@ -154,7 +153,8 @@
 						if($movie=="title"){
 
 							$titulo=$dato;
-							echo "<h4><a href='perfil-peli.php'>" . $titulo. "</a></h4>";
+							echo "<a href='perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+							echo "<h4><a href='perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
 
 						}
 

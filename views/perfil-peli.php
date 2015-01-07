@@ -181,7 +181,16 @@ $msg = new Messages();
     <?php include("../includes/ventanaModalSignin.html"); ?>
 
 	<div id="infopeli">
-		<h1>AFTER US</h1>
+
+        <?php 
+
+            // Se obtiene el titulo de la película mediante el método GET.
+            $titulo = $_GET['peli'];
+            echo "<h1> $titulo </h1>";
+
+        ?>
+
+		
 		<div class="ec-stars-wrapper">
 			<a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
 			<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
@@ -189,8 +198,38 @@ $msg = new Messages();
 			<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
 			<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
 		</div>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
-		<p>Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.</p>
+
+        <?php 
+
+            // Importamos el fichero database.php para la conexión a la base de datos en la nube
+            include_once("../config/database.php");
+
+            include_once("../funciones/peliculas.php");
+
+            // Establecemos la colección
+            $collection=$bd->peliculas;
+
+            // Se obtiene la id de la película desde las funciones pasando el parámetro de la peli obteniendo con el método GET.
+            $id_pelicula=obtenerIdPelicula($_GET['peli']);
+
+            // Es un array de datos sobre la película consultada en la bd
+            $datosPelicula=obtenerDatosPelicula($id_pelicula);
+
+            foreach ($datosPelicula as $campo => $valor) {
+
+                $synopsis;
+
+                if($campo=="synopsis"){
+
+                    $synopsis=$valor;
+                    echo "<p>$synopsis</p>";
+
+
+                }               
+
+            }
+
+        ?>
 
         <div id="buttons">
             <img src="../images/video/pause.png" id="playButton" onclick="doFirst()" />

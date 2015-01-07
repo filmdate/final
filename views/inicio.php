@@ -204,8 +204,7 @@
 
                             if($movie=="poster"){
 
-                                $poster=$dato;
-                                echo "<a href='views/perfil-peli.php'><img src=$poster></a>";
+                            $poster=$dato;                      
 
                             }
 
@@ -214,7 +213,9 @@
                             if($movie=="title"){
 
                                 $titulo=$dato;
-                                echo "<h4>" . $titulo . "</h4>";
+                                echo "<a href='views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+                                echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
+
                             }
 
                             if($movie=="year"){
@@ -272,8 +273,7 @@
 
                             if($movie=="poster"){
 
-                                $poster=$dato;
-                                echo "<a href='views/perfil-peli.php'><img src=$poster></a>";
+                            $poster=$dato;                      
 
                             }
 
@@ -282,7 +282,8 @@
                             if($movie=="title"){
 
                                 $titulo=$dato;
-                                echo "<h4><a href='views/perfil-peli.php'>" . $titulo . "</a></h4>";
+                                echo "<a href='views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+                                echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
 
                             }
 
