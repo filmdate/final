@@ -13,5 +13,5 @@
 
 		// Redirecciona a la pagina principal
 		include_once("model/peliculas.php");
-	};
+	}
 ?>
