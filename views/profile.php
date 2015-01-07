@@ -153,10 +153,10 @@ setcookie("usuario[password]", $password, time()+3600);
                             else{
 
                                 // Link para ir al perfil de usuario
-                                echo "<a href='views/profile.php' class='link'>Hola, <b>" . $_SESSION["nombreUsuario"]."</b></a>";
+                                echo "<a href='profile.php' class='link'>Hola, <b>" . $_SESSION["nombreUsuario"]."</b></a>";
 
                                 //Boton salir
-                                include("log.html");
+                                include("../includes/log.html");
 
                             }
 

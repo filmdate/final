@@ -164,7 +164,7 @@ if(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!=''){
                                     if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 
                                         // Se incluye el archivo noLog que contiene los dos botones
-                                        include("noLog.html");
+                                        include("includes/noLog.html");
 
 
                                     }
@@ -174,7 +174,7 @@ if(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!=''){
                                         echo "<a href='views/profile.php' class='link'>Hola, <b>" . $_SESSION["nombreUsuario"]."</b></a>";
 
                                         //Boton salir
-                                        include("logInicio.html");
+                                        include("includes/logInicio.html");
 
                                     }
 
@@ -355,7 +355,7 @@ if(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!=''){
             </section> <!--Cierre de la Próximamente -->
 
             <!-- Pie de toda la página -->
-            <?php include("footer.html"); ?>
+            <?php include("includes/footer.html"); ?>
 
 
             <!--Ventana Modal del Log In-->

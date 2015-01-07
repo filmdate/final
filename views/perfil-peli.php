@@ -147,17 +147,17 @@ $msg = new Messages();
                                     if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 
                                         // Se incluye el archivo noLog que contiene los dos botones
-                                        include("noLog.html");
+                                        include("../includes/noLog.html");
 
 
                                     }
                                     else{
 
                                         // Link para ir al perfil de usuario
-                                        echo "<a href='views/profile.php' class='link'>Hola, <b>" . $_SESSION["nombreUsuario"]."</b></a>";
+                                        echo "<a href='profile.php' class='link'>Hola, <b>" . $_SESSION["nombreUsuario"]."</b></a>";
 
                                         //Boton salir
-                                        include("log.html");
+                                        include("../includes/log.html");
 
                                     }
 
@@ -395,7 +395,7 @@ $msg = new Messages();
 	</div>
 
     <!-- Pie de toda la página -->
-    <?php include("footer.html"); ?>
+    <?php include("../includes/footer.html"); ?>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->
     <script type="text/javascript" src="../css/dist/js/bootstrap.min.js"></script>

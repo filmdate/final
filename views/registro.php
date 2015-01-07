@@ -135,7 +135,7 @@ include_once("../config/database.php");
                             </li> <!-- Cierre de la Buscador -->
 
 
-                            <?php  echo "<link href=\"../css/logueo.css\" rel=\"stylesheet\" type=\"text/css\" >"; include("noLog.html"); ?>
+                            <?php  echo "<link href=\"../css/logueo.css\" rel=\"stylesheet\" type=\"text/css\" >"; include("../includes/noLog.html"); ?>
 
                         </ul> <!-- Cierre de la lista desordenada -->
                     </nav> <!-- Cierre del menú -->
@@ -289,7 +289,7 @@ include_once("../config/database.php");
             </section> <!--Cierre de la Próximamente -->
 
             <!-- Pie de toda la página -->
-            <?php include("footer.html"); ?>
+            <?php include("../includes/footer.html"); ?>
 
 
             <!--Ventana Modal del Log In-->
