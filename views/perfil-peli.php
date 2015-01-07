@@ -212,8 +212,10 @@ $msg = new Messages();
             // Se obtiene la id de la película desde las funciones pasando el parámetro de la peli obteniendo con el método GET.
             $id_pelicula=obtenerIdPelicula($_GET['peli']);
 
+            $_SESSION['id_pelicula']=$id_pelicula;
+
             // Es un array de datos sobre la película consultada en la bd
-            $datosPelicula=obtenerDatosPelicula($id_pelicula);
+            $datosPelicula=obtenerDatosPelicula($_SESSION['id_pelicula']);
 
             foreach ($datosPelicula as $campo => $valor) {
 
@@ -253,7 +255,7 @@ $msg = new Messages();
 
                     include_once("../config/database.php");
                     $collection=$bd->criticas;
-                    $comenta = $collection->find();
+                    $comenta = $collection->find(array('id_pelicula' => $_SESSION['id_pelicula']));
                     $id_usuario;
                     $critica;
                     $username;

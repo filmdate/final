@@ -40,9 +40,7 @@ function obtenerDatosPelicula($id_pelicula){
 	global $collection;
 
 	// Se realiza una consulta para obtener los datos de la película a mostrar
-	$peliculas=$collection->findOne(array('_id' => $id_pelicula));
-
-	
+	$peliculas=$collection->findOne(array('_id' => $id_pelicula));	
 
 	// Devuelve el array de película
 	return $peliculas;

@@ -17,9 +17,8 @@ include_once("../config/database.php");
 
 // Se importan las funciones para comprobar u obtener datos
 include_once("../funciones/funciones.php");
+include_once("../funciones/peliculas.php");
 
-// Iniciar una nueva sesión o reanudar una sesión
-session_start();
 
 // Se comprueba si el comentario está definido
 if(isset($_POST['enviarCritica'])){
@@ -46,18 +45,35 @@ if(isset($_POST['enviarCritica'])){
 			$document = array( 
 
 				"id_usuario" => $idUsu, 
-				"id_pelicula" => "549013dce4b00f4300732ae4",
+				"id_pelicula" => $_SESSION['id_pelicula'],
 				"comentario" => $_POST['criti']
 
 	    	);
 
-			// Se inserta el documento en la colección llamado users
+			// Se inserta el documento en la colección llamado criticas
 			$collection=$bd->criticas;
 			$collection->insert($document);
 
+			// Se establece la colección llamado películas
+			$collection=$bd->peliculas;
 
-			// Redirecciona al perfil del usuario
-			header("location: ../views/perfil-peli.php");
+			$datosPelicula=obtenerDatosPelicula($_SESSION['id_pelicula']);
+
+			foreach ($datosPelicula as $campo => $valor) {
+
+                $nombrePeli;
+
+                if($campo=="title"){
+
+                    $nombrePeli=$valor;
+                    echo $nombrePeli;
+
+                }               
+
+            }
+
+			// Redirecciona al perfil de la película
+			header("location: ../views/perfil-peli.php?peli=$nombrePeli");
 
 		}
 		catch (MongoCursorException $e) {
@@ -66,7 +82,7 @@ if(isset($_POST['enviarCritica'])){
 			$msg->add('e', 'ERROR: Al insertar datos!');
 
 			// Redirecciona al perfil de la película
-			header('Location: ../views/perfil-peli.php');
+			header('Location: ../views/perfil-peli.php?peli=$nombrePeli');
 
 			// Imprime un mensaje y termina el script actual
 			exit();
