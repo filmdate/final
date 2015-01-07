@@ -167,122 +167,19 @@ $msg = new Messages();
                     </nav> <!-- Cierre del menú -->
             </header> <!-- Cierre del encabezado -->
 
-<video autoplay poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" loop>
-    <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-        <!--<source src="//demosthenes.info/assets/videos/polina.webm" type="video/webm">-->
-        <source src="https://dl.dropboxusercontent.com/s/wqfd0noja7wmjjc/video.mp4" type="video/mp4"></source>
-</video>
+    <video autoplay poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" loop>
+        <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+            <!--<source src="//demosthenes.info/assets/videos/polina.webm" type="video/webm">-->
+            <source src="https://dl.dropboxusercontent.com/s/wqfd0noja7wmjjc/video.mp4" type="video/mp4"></source>
+    </video>
 
 	<!--Ventana Modal del Log In-->
-            <div class="modal fade" id="milogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-                <div class="modal-dialog">
-
-                    <div class="modal-content">
-                        
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4>Inicia sesión</h4>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="row">
-                             
-                                    
-                                        <div class="panel-body">
-                                            <form role="form" method="post" action="../model/login.php">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Email</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Contraseña</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-                                                    </div>
-                                                </div>
-                                                <br/>
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" class="btn btn-success" 
-                                                    style="font-size:16px;margin-top:8px;">
-                                                    <span class="glyphicon glyphicon-arrow-left"></span> Atras
-                                                </button>
-                                                <button type="submit" name="login" class="btn btn-primary" style="background:#66cccc;border:none;"><span class="glyphicon glyphicon-lock"></span> Logueate</button>
-                                                <p><br/></p>
-                                            </form>
-                                        </div>
-                                    
-                                
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+    <?php include("../includes/ventanaModalLogin.html"); ?>
 
 
-            <!--Ventana Modal del Sign In-->
-            <div class="modal fade" id="miregistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!--Ventana Modal del Sign In-->
+    <?php include("../includes/ventanaModalSignin.html"); ?>
 
-                <div class="modal-dialog">
-
-                    <div class="modal-content"  style="height:500px;margin-top:10%;">
-                        
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4>Regístrate</h4>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="row">
-                                        <div class="panel-body">
-                                            <form role="form" method="post" action="../model/registro.php">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Email</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Nombre de usuario</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                                        <input type="text" name="username" class="form-control" id="exampleInputPassword1" placeholder="Usuario">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Contraseña</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Repite la contraseña</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                                        <input type="password" name="password2" class="form-control" id="exampleInputPassword1" placeholder="Repite Contraseña">
-                                                    </div>
-                                                </div>
-                                                <br/>
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" class="btn btn-success" 
-                                                    style="font-size:16px;margin-top:8px;">
-                                                    <span class="glyphicon glyphicon-arrow-left"></span> Atras
-                                                </button>
-                                                <button type="submit" name="registro" class="btn btn-primary" style="background:#66cccc;border:none;"><span class="glyphicon glyphicon-lock"></span>Registrarte</button>
-                                                <p><br/></p>
-                                            </form>
-                                        </div>      
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
 	<div id="infopeli">
 		<h1>AFTER US</h1>
 		<div class="ec-stars-wrapper">
