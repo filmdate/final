@@ -201,9 +201,9 @@ setcookie("usuario[password]", $password, time()+3600);
 
         <div class="profile">
 
-            <div class="profile-avatar-wrap">
+            <canvas class="profile-avatar-wrap">
                 <img src="../images/256.jpg" id="profile-avatar" alt="Image for Profile">
-            </div>
+            </canvas>
 
             <?php
 

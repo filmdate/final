@@ -70,6 +70,8 @@
                         </div>
                         <button class="btn btn-default">Enviar</button>
                     </form>
+                         <button class="btn btn-default" style="margin-top:8px;" onclick="location.href='salir.php'">
+                         <span class="glyphicon glyphicon-off"></span></button>                     
                 </div>
                 </div>
             </div>
