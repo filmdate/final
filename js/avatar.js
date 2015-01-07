@@ -5,7 +5,7 @@ jQuery.event.props.push('dataTransfer');
 (function() {
 
   var s;
-  var Avatar = {
+  var Avatar = {;
 
     settings: {
       bod: $("body"),
