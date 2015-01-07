@@ -41,6 +41,8 @@ if(isset($_POST['editNombre'])){
 		// Se comprueba si la contraseña coincide
 		if(verificarPassword($_SESSION["nombreUsuario"],md5($_POST['password']))==true){ //Si la contraseña coindice
 
+			$id_usuario=$_SESSION["id_usuario"];
+
 			$users=$collection->findOne(array('_id' => $_SESSION["id_usuario"]));
 
 			foreach ($users as $document) {
@@ -48,6 +50,12 @@ if(isset($_POST['editNombre'])){
 				$collection->update(array('_id' => $_SESSION["id_usuario"]), array('$set'=> array('usuario' => $_POST['nombre'])));
 
 			}
+
+			// Se obtiene el nombre de usuario de la BD
+			$nombreUsuario=obtenerUsuario($id_usuario);
+
+			// Se establece la variable de sesión del nombre de usuario
+			$_SESSION["nombreUsuario"]=$nombreUsuario;
 
    			// Mensaje de error a mostrar
 			$msg->add('s', 'Cambio realizado');

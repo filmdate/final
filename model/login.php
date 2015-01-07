@@ -66,6 +66,26 @@ if(isset($_POST['login'])){
 					// Se obtiene el id del usuario desde la bd
 					$id_usuario=obtenerIdUsuario($_POST['email']);
 
+					// Se obtienenn los datos del usuario mediante el id
+					$datosUsuario=obtenerDatosUsuario($id_usuario);
+
+					// Variables locales
+					$email;
+					$nombreUsuario;
+
+					// Recorremos los datos para saber si el email existe
+					foreach($datosUsuario as $campos => $datos){
+
+					    if($campos=='email'){
+					        $email=$datos;
+					    }
+
+					    if($campos=='usuario'){
+					        $nombreUsuario=$datos;
+					    }
+
+					} // Cierre del bucle foreach
+
 					// Si la variable de sesión id no está definido
 					if(!isset($_SESSION['id_usuario'])){
 
@@ -74,14 +94,19 @@ if(isset($_POST['login'])){
 						
 					}
 
-					// Se obtiene el nombre de usuario de la bd
-					$nombreUsuario=obtenerUsuario($id_usuario);
-
 					// Si la variable de sesión nombreUsuario no está definido
 					if(!isset($_SESSION['nombreUsuario'])){
 
 						//Se establece la variable de sesión del usuario, que será el nombre de usuario.
 						$_SESSION['nombreUsuario']=$nombreUsuario;
+						
+					}
+
+					// Si la variable de sesión email no está definido
+					if(!isset($_SESSION['email'])){
+
+						//Se establece la variable de sesión del usuario, que será el nombre de usuario.
+						$_SESSION['email']=$email;
 						
 					}
 

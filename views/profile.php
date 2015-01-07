@@ -11,38 +11,8 @@ if( !session_id() ) session_start();
 require_once('../controller/class.messages.php');
 $msg = new Messages();
 
-
-// Se importan las funciones
-include_once("../funciones/funciones.php");
-
-// Se obtienenn los datos del usuario mediante el id
-$datosUsuario=obtenerDatosUsuario($_SESSION['id_usuario']);
-
-// Variables locales
-$email;
-$usuario;
-$password;
-
-// Recorremos los datos para saber si el email existe
-foreach($datosUsuario as $campos => $datos){
-    if($campos=='email'){
-        $email=$datos;
-    }
-    if($campos=='usuario'){
-        $usuario=$datos;
-    }
-    if($campos=='password'){
-        $password=$datos;
-    }
-} // Cierre del bucle foreach
-
-// Se establece el array de cookies (guardar la información del usuario)
-setcookie("usuario[email]", $email, time()+3600);
-setcookie("usuario[nombre]", $usuario, time()+3600);
-setcookie("usuario[password]", $password, time()+3600);
-// Se expira en 1min.*/
-
 ?>
+
 <html>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
@@ -182,43 +152,31 @@ setcookie("usuario[password]", $password, time()+3600);
 
         <div class="page-wrap">
 
-        <?php 
+        <?php
 
-            // array de cookies
-            if (isset($_COOKIE['usuario'])) {
-                foreach ($_COOKIE['usuario'] as $name => $value) {
-                    $name=htmlspecialchars($name);
-                    if($name=="nombre"){
-                        $value=htmlspecialchars($value);
-                        echo "<h1>Perfil de $value </h1>";
+            // Muestra la variable de sesión del nombreUsuario
+            if (isset($_SESSION['nombreUsuario'])) {
+                       
+                echo "<h1>Perfil de ". $_SESSION["nombreUsuario"] . "</h1>"; 
 
-                    }
-                }
             }
-
 
         ?>
 
         <div class="profile">
 
-            <canvas class="profile-avatar-wrap">
+            <div class="profile-avatar-wrap">
                 <img src="../images/256.jpg" id="profile-avatar" alt="Image for Profile">
-            </canvas>
+            </div>
 
-            <?php
+                <?php
 
-                //print(" Hola, <b>" . $_COOKIE[$cookie_name] . "<b/>");
+                    // Muestra la variable de sesión del nombreUsuario
+                    if (isset($_SESSION['nombreUsuario'])) {
+                               
+                        echo "Usuario: <b>". $_SESSION["nombreUsuario"] ."</b>!\n\n\n";
 
-                // Se importa database.php para mantener la conexión
-                include_once("../config/database.php");
-
-                // Se importan para utilizar las sesiones
-                include_once("../model/registro.php");
-                include_once("../model/login.php");
-
-
-                // Si está logueado muestra los datos y el link para salir
-                echo "Usuario: <b>".$_SESSION["nombreUsuario"]."</b>!\n\n\n";
+                    }
 
                 ?>
 
@@ -229,16 +187,11 @@ setcookie("usuario[password]", $password, time()+3600);
 
                     <?php
 
-                        // array de cookies
-                        if (isset($_COOKIE['usuario'])) {
-                            foreach ($_COOKIE['usuario'] as $name => $value) {
-                                $name=htmlspecialchars($name);
-                                if($name=="email"){
-                                    $value=htmlspecialchars($value);
-                                    echo "Email: <b>$value</b>\n\n\n";
+                        // Muestra la variable de sesión del email
+                        if (isset($_SESSION['email'])) {
+                                   
+                            echo "Email: <b>". $_SESSION["email"] ."</b>\n\n\n";
 
-                                }
-                            }
                         }
 
                     ?>

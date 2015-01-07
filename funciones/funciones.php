@@ -147,7 +147,7 @@ function comprobarPassword($email,$password){
 * parans --> $usuario. Se obtiene del formulario.
 * return --> El email en String.
 */
-function obtenerEmail($usuario){
+function obtenerEmail($id_usuario){
 
 	// Variable global
 	global $collection;
@@ -156,7 +156,7 @@ function obtenerEmail($usuario){
 	$email=''; // Se establece el valor vacío de String
 
 	// Se realiza una consulta para obtener los datos de un usuario
-	$users=$collection->findOne(array('usuario' => $usuario));
+	$users=$collection->findOne(array('_id' => $id_usuario));
 			
 	// Recorremos los datos para saber si el usuario existe
 	foreach($users as $campos => $datos){
