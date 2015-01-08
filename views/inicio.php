@@ -8,9 +8,8 @@
 		<title> filmdate </title>
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
-
-		<link rel="stylesheet" href="../css/main.css" /> <!-- El diseño está en un archivo externo -->
-
+        <!-- El diseño está en un archivo externo -->
+		<link rel="stylesheet" href="../css/main.css" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
@@ -19,8 +18,7 @@
         <!--CSS bootstrap-->
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
         <!-- jQuery para menu respontive -->
-        <script type="text/javascript" src="../js/menu.js"></script> 
-        
+        <script type="text/javascript" src="../js/menu.js"></script>         
 	</head> <!-- Cierre del encabezado de la página -->
 	
 	<!-- Cuerpo de toda la página -->

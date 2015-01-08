@@ -32,7 +32,7 @@ if(isset($_POST['registro'])){
 		// Redirecciona a la página de registro
 		header('Location: ../views/registro.php');
 
-		// Sale
+		// Imprime un mensaje y termina el script actual
 		exit();
 		
 	}
@@ -47,7 +47,7 @@ if(isset($_POST['registro'])){
 			// Redirecciona a la página de registro
 			header('Location: ../views/registro.php');
 
-			// Sale
+			// Imprime un mensaje y termina el script actual
 			exit();
 
 		}
@@ -62,7 +62,7 @@ if(isset($_POST['registro'])){
 				// Redirecciona a la página de registro
 				header('Location: ../views/registro.php');
 
-				// Sale
+				// Imprime un mensaje y termina el script actual
 				exit();
 
 			}
@@ -141,7 +141,7 @@ if(isset($_POST['registro'])){
 					// Redirecciona a la página de registro
 					header('Location: ../views/registro.php');
 
-					// Sale
+					// Imprime un mensaje y termina el script actual
 					exit();
 
 

@@ -24,9 +24,8 @@ include_once("../config/database.php");
 		<title> filmdate </title>
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
-
-		<link rel="stylesheet" href="../css/logueo.css" /> <!-- El diseño está en un archivo externo -->
-
+        <!-- El diseño está en un archivo externo -->
+		<link rel="stylesheet" href="../css/logueo.css" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
@@ -39,8 +38,7 @@ include_once("../config/database.php");
 	</head> <!-- Cierre del encabezado de la página -->
 	
 	<!-- Cuerpo de toda la página -->
-	<body>	
-
+	<body>
 		<!-- Engloba todas las etiquetas -->
 		<div id="container"> 
 

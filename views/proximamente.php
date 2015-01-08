@@ -101,12 +101,12 @@
 		<!--Ventana Modal del Log In-->
         <?php include("../includes/ventanaModalLogin.html"); ?>
 
-
         <!--Ventana Modal del Sign In-->
         <?php include("../includes/ventanaModalSignin.html"); ?>
 
 		</div> <!-- div de Container -->
 
+		<!-- Para las ventanas modales -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->
         <script type="text/javascript" src="../css/dist/js/bootstrap.min.js"></script>
 

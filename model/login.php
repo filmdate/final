@@ -17,7 +17,6 @@ include_once("../config/database.php");
 // Se importan las funciones para comprobar u obtener datos
 include_once("../funciones/funciones.php");
 
-
 // Se comprueba si el login está definida
 if(isset($_POST['login'])){
 	
@@ -30,7 +29,7 @@ if(isset($_POST['login'])){
 		// Redirecciona a la página de login
 		header('Location: ../views/login.php');
 
-		// Sale
+		// Imprime un mensaje y termina el script actual
 		exit();
 
 	}
@@ -45,7 +44,7 @@ if(isset($_POST['login'])){
 			// Redirecciona a la página de login
 			header('Location: ../views/login.php');
 
-			// Sale
+			// Imprime un mensaje y termina el script actual
 			exit();
 
 		}
@@ -122,7 +121,7 @@ if(isset($_POST['login'])){
 				// Redirecciona a la página de login
 				header('Location: ../views/login.php');
 
-				// Sale
+				// Imprime un mensaje y termina el script actual
 				exit();
 
 			} // Cierre del else porque la contraseña no coincide

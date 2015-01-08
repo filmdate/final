@@ -33,7 +33,7 @@ if(isset($_POST['editEmail'])){
 		// Redirecciona al perfil del usuario
 		header('Location: ../views/profile.php');
 
-		// Sale
+		// Imprime un mensaje y termina el script actual
 		exit();
 
 	}
@@ -42,12 +42,16 @@ if(isset($_POST['editEmail'])){
 		// Se comprueba si la contraseña coincide
 		if(verificarPassword($_SESSION["nombreUsuario"],md5($_POST['password']))==true){ //Si la contraseña coindice
 
+			// Se establece la variable mediante el valor de la variable de sesión
 			$id_usuario=$_SESSION["id_usuario"];
 
+			// Se consultan los datos de ese usuario en concreto
 			$users=$collection->findOne(array('_id' => $_SESSION["id_usuario"]));
 
+			// Se recorre el array
 			foreach ($users as $document) {
 				
+				// Se actualiza el email del usuario
 				$collection->update(array('usuario' => $_SESSION["nombreUsuario"]), array('$set'=> array('email' => $_POST['email'])));
 
 			}
@@ -58,13 +62,13 @@ if(isset($_POST['editEmail'])){
 			// Se establece la variable de sesión del nombre de usuario
 			$_SESSION["email"]=$email;
 
-   			// Mensaje de error a mostrar
+   			// Muestra mensaje exitoso
 			$msg->add('s', 'Cambio realizado');
 
 			// Redirecciona al perfil del usuario
 			header('Location: ../views/profile.php');
 
-			// Sale
+			// Imprime un mensaje y termina el script actual
 			exit();
 		
 		}
@@ -76,7 +80,7 @@ if(isset($_POST['editEmail'])){
 			// Redirecciona al perfil del usuario
 			header('Location: ../views/profile.php');
 
-			// Sale
+			// Imprime un mensaje y termina el script actual
 			exit();
 
 		} // Cierre del else porque la contraseña no coincide
