@@ -308,6 +308,10 @@ footer a:hover{
 
 	/* Encabezado ************************************/
 	#header{
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
 		display: block;
 		background-color: #f2efef;
 	}
@@ -371,7 +375,7 @@ footer a:hover{
 
     /* Cartelera */
 	#cartelera{
-
+		margin-top: 50px;
 		height: 2200px;
 		padding: 12px;
 		padding-left: 60px;
@@ -381,7 +385,7 @@ footer a:hover{
 	}
 
 	#proximamente{
-
+		margin-top: 50px;
 		height: 2200px;
 		padding: 12px;
 		padding-left: 60px;

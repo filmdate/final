@@ -48,7 +48,6 @@ video {
 }
 
 #infopeli {
-  border-radius: 5px; 
   float: right;
   padding: 80px;
   margin-top: 8%;
@@ -312,8 +311,8 @@ footer a:hover{
   }
 
   #infopeli{
+    margin-top: 50px;
     width: 100%;
-    margin-top: 0%;
     background-color: #999999;
     height: 100%;
   }
@@ -325,6 +324,10 @@ footer a:hover{
 
   /* MENU ************************************/
   #header{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
     display: block;
     background-color: #f2efef;
   }
