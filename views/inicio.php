@@ -105,8 +105,8 @@
                             <li>
                                 <!-- Caja de buscador -->
                                 <div id="buscador">
-                                     <form method="get" action="/search" id="search">
-                                        <input name="q" type="text" size="40" placeholder="Buscar pelicula" />
+                                     <form method="post" action="../model/buscar.php" id="search">
+                                        <input name="pelicula" type="text" size="40" placeholder="Buscar pelicula" />
                                     </form>
                                 </div> <!-- Cierre de la caja del buscador -->
                             </li> <!-- Cierre de la Buscador -->
@@ -119,7 +119,7 @@
                                     echo "<link href=\"../css/main.css\" rel=\"stylesheet\" type=\"text/css\" >";
 
                                     // Se inicia sesión o reanuda la sesión
-                                    session_start();
+                                    //session_start();
 
                                     // Botones de regitro y login
                                     if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){

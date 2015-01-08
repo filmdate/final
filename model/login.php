@@ -17,8 +17,6 @@ include_once("../config/database.php");
 // Se importan las funciones para comprobar u obtener datos
 include_once("../funciones/funciones.php");
 
-// Iniciar una nueva sesión o reanudar una sesión
-session_start();
 
 // Se comprueba si el login está definida
 if(isset($_POST['login'])){
