@@ -5,9 +5,7 @@
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
 		<title> filmdate </title>
-
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
 
@@ -17,60 +15,11 @@
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
         <!-- jQuery de slider -->
-        <script type="text/javascript" src="../js/slider.js"></script> <!-- jQuery slider -->
+        <script type="text/javascript" src="../js/slider.js"></script>
         <!--CSS bootstrap-->
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
-        
-
         <!-- jQuery para menu respontive -->
-        <script type="text/javascript">
-        
-            $(document).ready(function(){
-
-                //Obtenemos el link que contenga el id pull
-                var pull=$('#pull');
-
-                //Obtenemos todos las etiquetas ul que contenga la etiqueta nav
-                var menu=$('ul');
-
-                var html=$('html');
-
-                //Guardamos la altura del menú en una variable
-                var menuHeight=menu.height();
-
-                //Cuando haga clic en el link, realizaremos una función con pasando un parámetro
-                $(pull).on('click', function(e) {
-
-                    e.preventDefault();
-                    menu.slideToggle();
-
-               
-                });  //Cierre del método on
-
-
-
-                //Cuando la ventana se hace más pequeño, se realiza la siguiente función
-                $(window).resize(function(){
-
-                  //Gaurdamos en una variable el width de la ventana de forma local
-                  var w=$(window).width();
-
-                  //Si la anchura es mayor que 700px, el slider debe aparecer
-                  if(w>700) {
-
-                    //Eliminamos el atributo style del menú
-                    menu.removeAttr('style');
-
-        
-                  }
-
-                //Cierre de la función resize
-                });
-
-            //Cierre de la función general    
-            });
-
-        </script> <!-- Cierre de jQuery del slider -->
+        <script type="text/javascript" src="../js/menu.js"></script> 
         
 	</head> <!-- Cierre del encabezado de la página -->
 	
@@ -122,13 +71,16 @@
 
                 <?php
 
+                    // Se importa mediante un css externo
                     echo "<link href=\"../css/main.css\" rel=\"stylesheet\" type=\"text/css\" >";
 
                     // Establecemos la colección
                     $collection=$bd->peliculas;
 
+                    // Se obtiene sólo 5 registros que sean de cartelera
                     $cartelera=$collection->find(array("boxOffice" => "boxOffice"))->limit(5);
 
+                    // Se recorre el array de cartelera
                     foreach ($cartelera as $campo => $valor) {
 
                         echo "<div class='peli'>";
@@ -196,6 +148,7 @@
                     // Establecemos la colección
                     $collection=$bd->peliculas;
 
+                    // Se obtiene sólo 5 registros que las películas próximamente
                     $proximamente=$collection->find(array("upcoming" => "upcoming"))->limit(5);
 
                     foreach ($proximamente as $campo => $valor) {
@@ -268,6 +221,7 @@
              
          </div> <!-- Cierre div del container -->
 
+        <!-- Para las ventanas modales -->
         <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->
         <script type="text/javascript" src="../css/dist/js/bootstrap.min.js"></script>
 

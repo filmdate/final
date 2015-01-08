@@ -28,79 +28,31 @@ $msg = new Messages();
 	<script type="text/javascript" src="../js/perfil-peli.js"></script>
     <!--CSS bootstrap-->
     <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
-
     <!-- Mensajes flash -->
     <link rel="stylesheet" type="text/css" href="../css/mensajes.css">
-
 	<!--para full screen video, pantalla completa-->
 	<script type="text/javascript">
 	    $(document).ready(function(){
 	        //Funcion que se activa al evento click del button o boton
 	        $('#amplia').click(function(){
-	                 // Codigo para activar pantalla completa en Chrome o Safari 5
-	                 //Seleccionamos el elemnento video del ID video, en este caso la misma etiqueta video
-	                 var elem = document.getElementById("bgvid");
-						if (elem.requestFullscreen) {
-						  elem.requestFullscreen();
-						} else if (elem.msRequestFullscreen) {
-						  elem.msRequestFullscreen();
-						} else if (elem.mozRequestFullScreen) {
-						  elem.mozRequestFullScreen();
-						} else if (elem.webkitRequestFullscreen) {
-						  elem.webkitRequestFullscreen();
-						}                           
+             // Codigo para activar pantalla completa en Chrome o Safari 5
+             //Seleccionamos el elemnento video del ID video, en este caso la misma etiqueta video
+             var elem = document.getElementById("bgvid");
+				if (elem.requestFullscreen) {
+				  elem.requestFullscreen();
+				} else if (elem.msRequestFullscreen) {
+				  elem.msRequestFullscreen();
+				} else if (elem.mozRequestFullScreen) {
+				  elem.mozRequestFullScreen();
+				} else if (elem.webkitRequestFullscreen) {
+				  elem.webkitRequestFullscreen();
+				}                           
 	        });
 	    });
 	 </script>
 
-	 <script type="text/javascript">
-        
-            $(document).ready(function(){
-
-                //Obtenemos el link que contenga el id pull
-                var pull=$('#pull');
-
-                //Obtenemos todos las etiquetas ul que contenga la etiqueta nav
-                var menu=$('ul');
-
-                var html=$('html');
-
-                //Guardamos la altura del menú en una variable
-                var menuHeight=menu.height();
-
-                //Cuando haga clic en el link, realizaremos una función con pasando un parámetro
-                $(pull).on('click', function(e) {
-
-                    e.preventDefault();
-                    menu.slideToggle();
-
-               
-                });  //Cierre del método on
-
-
-
-                //Cuando la ventana se hace más pequeño, se realiza la siguiente función
-                $(window).resize(function(){
-
-                  //Gaurdamos en una variable el width de la ventana de forma local
-                  var w=$(window).width();
-
-                  //Si la anchura es mayor que 700px, el slider debe aparecer
-                  if(w>700) {
-
-                    //Eliminamos el atributo style del menú
-                    menu.removeAttr('style');
-
-        
-                  }
-
-                //Cierre de la función resize
-                });
-
-            //Cierre de la función general    
-            });
-
-        </script> <!-- Cierre de jQuery del slider -->
+	<!-- jQuery para menu respontive -->
+    <script type="text/javascript" src="../js/menu.js"></script> 
 </head>
 <body>
     
@@ -116,7 +68,6 @@ $msg = new Messages();
 	<!--Ventana Modal del Log In-->
     <?php include("../includes/ventanaModalLogin.html"); ?>
 
-
     <!--Ventana Modal del Sign In-->
     <?php include("../includes/ventanaModalSignin.html"); ?>
 
@@ -130,7 +81,7 @@ $msg = new Messages();
 
         ?>
 
-		
+		<!-- Voto de estrellas -->
 		<div class="ec-stars-wrapper">
 			<a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
 			<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
@@ -139,6 +90,7 @@ $msg = new Messages();
 			<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
 		</div>
 
+        <!-- Muestra la sinopsis de la película correspondiente -->
         <?php 
 
             // Importamos el fichero database.php para la conexión a la base de datos en la nube
@@ -173,24 +125,28 @@ $msg = new Messages();
 
         ?>
 
+        <!-- Botones para el vídeo -->
         <div id="buttons">
             <img src="../images/video/pause.png" id="playButton" onclick="doFirst()" />
         </div>
         <div id="amplia">
             <img src="../images/video/full.png" />
         </div>
+        <!-- Cierre de los botones del vídeo -->
 
-	</div>
+	</div> <!-- Cierre del id infopeli -->
 
-	    <div id="div_abajo">
+	<div id="div_abajo">
         <center><span style="font-size:20px;color:grey;" class="glyphicon glyphicon-chevron-down glyphicon-refresh-animate"></span></center>
-     </div> <!-- Cierre del btn_abajo -->
+    </div> <!-- Cierre del btn_abajo -->
 
+    <!-- Parte de las críticas -->
 	<div id="contCriticas">
 
     	<div class="criticas">
 
             <div id="coment">
+                <!-- Listado de los comentarios de la película obtenida de la BD -->
                 <?php
 
                     include_once("../config/database.php");
@@ -232,13 +188,10 @@ $msg = new Messages();
                         
                     }
 
-
                     //------------------------------------------------------------------------
                     // Muestra el mensaje flash
                     //------------------------------------------------------------------------
                     echo $msg->display();
-
-
                 ?>
             </div>
 
@@ -248,8 +201,6 @@ $msg = new Messages();
                 if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 
                     // No se muestra el textarea para comentar ni el botón
-
-
                 }
                 else{ ?>
 
@@ -270,12 +221,14 @@ $msg = new Messages();
             ?>
 
 		</div>
-	</div>
+	</div> <!-- Cierre del div de críticas -->
 
     <!-- Pie de toda la página -->
     <?php include("../includes/footer.html"); ?>
 
+    <!-- Para las ventanas modales -->
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->
     <script type="text/javascript" src="../css/dist/js/bootstrap.min.js"></script>
+    
 </body>
 </html>

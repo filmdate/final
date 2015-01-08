@@ -11,14 +11,6 @@ if( !session_id() ) session_start();
 require_once('../controller/class.messages.php');
 $msg = new Messages();
 
-//------------------------------------------------------------------------------
-// Add some messages
-//------------------------------------------------------------------------------
-//$msg->add('s', 'The is a sample Success Message');
-//$msg->add('e', 'The is a sample Error Message');
-//$msg->add('w', 'The is a sample Warning Message');
-//$msg->add('i', 'The is a sample Information Message');
-
 include_once("../config/database.php");
 
 ?>
@@ -29,9 +21,7 @@ include_once("../config/database.php");
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
 		<title> filmdate </title>
-
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
 
@@ -44,57 +34,8 @@ include_once("../config/database.php");
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
         <!-- Mensajes flash -->
         <link rel="stylesheet" type="text/css" href="../css/mensajes.css">
-
         <!-- jQuery para menu respontive -->
-        <script type="text/javascript">
-        
-            $(document).ready(function(){
-
-                //Obtenemos el link que contenga el id pull
-                var pull=$('#pull');
-
-                //Obtenemos todos las etiquetas ul que contenga la etiqueta nav
-                var menu=$('ul');
-
-                var html=$('html');
-
-                //Guardamos la altura del menú en una variable
-                var menuHeight=menu.height();
-
-                //Cuando haga clic en el link, realizaremos una función con pasando un parámetro
-                $(pull).on('click', function(e) {
-
-                    e.preventDefault();
-                    menu.slideToggle();
-
-               
-                });  //Cierre del método on
-
-
-
-                //Cuando la ventana se hace más pequeño, se realiza la siguiente función
-                $(window).resize(function(){
-
-                  //Gaurdamos en una variable el width de la ventana de forma local
-                  var w=$(window).width();
-
-                  //Si la anchura es mayor que 700px, el slider debe aparecer
-                  if(w>700) {
-
-                    //Eliminamos el atributo style del menú
-                    menu.removeAttr('style');
-
-        
-                  }
-
-                //Cierre de la función resize
-                });
-
-            //Cierre de la función general    
-            });
-
-        </script> <!-- Cierre de jQuery del slider -->
-        
+        <script type="text/javascript" src="../js/menu.js"></script> 
 	</head> <!-- Cierre del encabezado de la página -->
 	
 	<!-- Cuerpo de toda la página -->
@@ -113,7 +54,7 @@ include_once("../config/database.php");
 
 	        ?>
 
-            <!-- Representa el apartado de Cartelera -->
+            <!-- Representa el listado de Cartelera -->
             <section id="cartelera">
 
                 <h3> Cartelera </h3>
@@ -265,6 +206,7 @@ include_once("../config/database.php");
              
          </div> <!-- Cierre div del container -->
 
+        <!-- Para las ventanas modales -->
         <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->
         <script type="text/javascript" src="../css/dist/js/bootstrap.min.js"></script>
 
