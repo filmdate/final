@@ -4,7 +4,7 @@
 include_once("../config/database.php");
 
 // Se importan las funciones para comprobar u obtener datos
-include_once("../funciones/funciones.php");
+include_once("../funciones/peliculas.php");
 
 // Se comprueba si el anadir está definida
 if(isset($_POST['anadir'])){

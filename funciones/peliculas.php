@@ -47,4 +47,29 @@ function obtenerDatosPelicula($id_pelicula){
 
 }
 
+function peliculaExiste($nombre){
+
+	// Variable global
+	global $collection;
+
+	// Variable local 
+	$existe=true; // Se establece el valor true
+
+	// Se realiza una consulta para obtener los dato de una pelicula 
+	$peliculas=$collection->findOne(array('title' => $nombre));
+
+	// Si la consulta devuelve NULL (no existe)
+	if($peliculas==NULL){
+
+		// Se establece la variable local con el valor false.
+		$existe=false;
+
+	}
+
+	// Devuelve el valor booleano
+	return $peliculas;	
+
+
+}  //Cierre de la función peliculaExiste
+
 ?>

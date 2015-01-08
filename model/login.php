@@ -15,7 +15,7 @@ $msg = new Messages();
 include_once("../config/database.php");
 
 // Se importan las funciones para comprobar u obtener datos
-include_once("../funciones/funciones.php");
+include_once("../funciones/usuarios.php");
 
 // Se comprueba si el login está definida
 if(isset($_POST['login'])){

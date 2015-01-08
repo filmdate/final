@@ -16,7 +16,7 @@ $msg = new Messages();
 include_once("../config/database.php");
 
 // Se importan las funciones para comprobar u obtener datos
-include_once("../funciones/funciones.php");
+include_once("../funciones/usuarios.php");
 include_once("../funciones/peliculas.php");
 
 
