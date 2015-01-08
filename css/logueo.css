@@ -27,6 +27,28 @@ header, section, footer, nav {
 	display: block;
 }
 
+/* Footer */
+footer{
+	background-color: #cccccc;
+	width: 100%;
+	position: absolute;
+	top: 160%;
+	height: 66px;
+	padding: 3px;
+}
+
+footer a{
+	position: relative;
+	top: 16px;
+	color: #eeeeee;
+	padding-right:18px;
+	float: right;
+}
+
+footer a:hover{
+	color: grey;
+	text-decoration: none;
+}
 
 /***********************************************************************************************
 									   Selectores por CLASE 
@@ -39,96 +61,6 @@ header, section, footer, nav {
 	cursor: pointer;
 	margin: 0px;
 }
-
-
-
-/* ************************************************************************************************
-											Selectores por ID
-************************************************************************************************ */
-
-/* Layout */
-#container{
-
-	width: 100%;
-
-}
-
-/* Encabezado ************************************/
-#header{
-	/*border: 3px solid red;*/
-	position: relative;
-	z-index: 2;
-	display: -webkit-box; /* Chrome*/
-	-webkit-box-orient: horizontal; /* encabezado en horizontal */
-	height: 50px;
-}
-
-
-/* Menú */
-
-/* Imagen corporativa */
-
-.imgLogo{
-	content:url("../images/logotxiki.png");
-}
-#logo{
-  padding-left: 26px;
-  padding-top: 12px;
-	/*border: 3px solid green;*/
-	width: 200px;
-	min-width: 100px;
-	opacity: 0.9;
-}
-#menu_nav{
-	margin-top: 17px;
-	/*border: 3px solid purple;*/
-	position: absolute;
-	right: 0;
-	width: 555px;
-}
-
-#menu_nav li{ 
-
-	display: inline-block; /* Para poner el menú en horizontal */
-
-}
-
-.link{/*estilos para los link del menu, para que no coja bootstrap*/
-	color: #f2efef;
-	padding-right: 20px;
-	opacity: 0.9;
-	text-decoration: none;
-}
-
-.link:hover{
-	color: grey;
-	text-decoration: none;
-}
-
-/* Botón oculto para aparecer el menú */
-#pull{
-
-	display: none;
-}
-
-/* Header navigation of slider */
-#headernav-outer { 
-
-	position:relative; 
-	top: 285px;
-	margin:0 auto; 
-	width: 95%; 
-
-}
-
-
-/* Botón para ir hacia abajo */
-#div_abajo{
-	/*border: 2px solid brown;*/
-	height: 80px;
-	margin-left: 0px;
-}
-
 
 /*icono animado*/
 .glyphicon-refresh-animate {
@@ -149,27 +81,20 @@ header, section, footer, nav {
 	100%{color:red;}
 }*/
 
-
-
-/* Cartelera */
-#cartelera{
-
-	padding: 5px;
-	padding-left: 50px;
-	width: 100%;
-	/*border: 3px solid green;*/
-	height: 600px;
-	background-color: #f2efef;
-
+/*estilos para los link del menu, para que no coja bootstrap*/
+.link{
+	color: #f2efef;
+	padding-right: 20px;
+	opacity: 0.9;
+	text-decoration: none;
 }
 
-#cartelera h3{
-
-	color: #cccccc;
-	margin-left: 30px;
-	
+.link:hover{
+	color: grey;
+	text-decoration: none;
 }
 
+/* Imágen de la película */
 .peli{
 
 	position: relative;
@@ -178,6 +103,7 @@ header, section, footer, nav {
 
 }
 
+/* Información de la película ************************************/
 .descrip{
 	width: 160px;
 }
@@ -191,7 +117,7 @@ header, section, footer, nav {
 	color: #66cccc;
 }
 
-
+/* Botón para ir a cartelera o proximamente */
 .vermas{
 
 	clear: both;
@@ -201,6 +127,104 @@ header, section, footer, nav {
 	cursor: pointer;
 	
 }
+
+/*imagenes de redes sociales*/
+.red{
+	cursor: pointer;
+	float: right;
+	padding-right:14px;
+}
+
+
+/* ************************************************************************************************
+											Selectores por ID
+************************************************************************************************ */
+
+/* Layout */
+#container{
+
+	width: 100%;
+
+}
+
+/* Encabezado ************************************/
+#header{
+
+	position: relative;
+	z-index: 2;
+	display: -webkit-box; /* Chrome*/
+	-webkit-box-orient: horizontal; /* encabezado en horizontal */
+	height: 50px;
+}
+
+/* Imágen corporativa*/
+#logo{
+
+	padding-left: 26px;
+	padding-top: 12px;
+	width: 200px;
+	min-width: 100px;
+	opacity: 0.9;
+}
+
+/* Menú */
+#menu_nav{
+	margin-top: 17px;
+	position: absolute;
+	right: 0;
+	width: 555px;
+}
+
+/* Para poner el menú en horizontal */
+#menu_nav li{ 
+
+	display: inline-block; 
+
+}
+
+/* Botón oculto para aparecer el menú */
+#pull{
+
+	display: none;
+}
+
+/* Header navigation of slider */
+#headernav-outer { 
+
+	position:relative; 
+	top: 285px;
+	margin:0 auto; 
+	width: 95%; 
+
+}
+
+/* Botón para ir hacia abajo */
+#div_abajo{
+
+	height: 80px;
+	margin-left: 0px;
+}
+
+/* Listado de cartelera */
+#cartelera{
+
+	padding: 5px;
+	padding-left: 50px;
+	width: 100%;
+	/*border: 3px solid green;*/
+	height: 600px;
+	background-color: #f2efef;
+
+}
+
+/* Título de la cartelera */
+#cartelera h3{
+
+	color: #cccccc;
+	margin-left: 30px;
+	
+}
+
 
 /* Próximamente */
 #proximamente{
@@ -225,6 +249,7 @@ header, section, footer, nav {
 }
 
 #search input[type="text"] {
+
 	outline: none;
     background:   url(../images/busca.png) no-repeat 10px 6px #f2efef;
     background-color: rgba(0, 0, 0, 0);
@@ -245,35 +270,6 @@ header, section, footer, nav {
 
 #search input[type="text"]:focus {
     width: 156px;
-}
-
-/* Footer */
-footer{
-	background-color: #cccccc;
-	width: 100%;
-	position: absolute;
-	top: 160%;
-	height: 66px;
-	padding: 3px;
-}
-
-footer a{
-	position: relative;
-	top: 16px;
-	color: #eeeeee;
-	padding-right:18px;
-	float: right;
-}
-
-footer a:hover{
-	color: grey;
-	text-decoration: none;
-}
-/*imagenes de redes sociales*/
-.red{
-	cursor: pointer;
-	float: right;
-	padding-right:14px;
 }
 
 
@@ -325,7 +321,6 @@ footer a:hover{
 	}
 
 	/* Menú */
-
 	#menu_nav {
 		margin-top: 0px;
 		padding-left: 20px;
@@ -380,7 +375,6 @@ footer a:hover{
 		padding: 12px;
 		padding-left: 60px;
 		width: 100%;
-		/*border: 2px solid black;*/
 
 	}
 
@@ -390,7 +384,6 @@ footer a:hover{
 		padding: 12px;
 		padding-left: 60px;
 		width: 100%;
-		/*border: 2px solid black;*/
 
 	}
 
@@ -404,9 +397,9 @@ footer a:hover{
 
 	.peli{
 		margin: 10px;
-		/*border: 2px solid green;*/
 
 	}
+
 	/* Footer */
 	footer{
 		display: none;
@@ -431,7 +424,6 @@ footer a:hover{
 		padding: 12px;
 		padding-left: 60px;
 		width: 100%;
-		/*border: 2px solid black;*/
 
 	}
 
@@ -439,10 +431,6 @@ footer a:hover{
 		padding: 12px;
 		padding-left: 60px;
 		width: 100%;
-		/*border: 2px solid black;*/
 
 	}
-
-
-
 }
