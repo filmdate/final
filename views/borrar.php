@@ -80,9 +80,11 @@
         </nav>
 
         <!--PARA CUANDO CLICKE UNA FILA
-        $('.table > tr').click(function() {
-            // row was clicked
-        });-->  
+        <script type="text/javascript">
+            $('.table > tr').click(function() {
+                // row was clicked
+            });
+        </script>-->
 
         <div class="container" style="position:relative;top:50px;">
             <div class="panel panel-primary">
@@ -92,9 +94,6 @@
                     <tr class="info">
                      <th>Título</th>
                      <th>Duración</th>
-                     <th>Descripción</th>
-                     <th>Reparto</th>
-                     <th>Calificación</th>
                     </tr>
                 <?php
 
@@ -106,78 +105,35 @@
 
                     foreach ($pelis as $campo => $valor) {
 
-                        echo "<tr>";
+                        if($campo=="id"){
+                            echo "<tr id='$campo'>";
+                        }
+
 
                         foreach ($valor as $movie => $dato) {
 
                             $titulo;
                             $descripcion;
-                            $runtime;
 
                             if($movie=="title"){
 
                                 $titulo=$dato;
-                                echo "<th>" . $titulo . "</th>";
+                                echo "<td>" . $titulo . "</td>";
 
                             }
 
                             if($movie=="synopsis"){
 
                                 $descripcion=$dato;
-                                echo "<th><p align='justify'>" . $descripcion . "</p></th>";
+                                echo "<td><p align='justify'>" . $descripcion . "</p></td>";
                             }
-
-                            if($movie=="runtime"){
-
-                                $runtime=$dato;
-                                echo "<th>" . $runtime . " mins</th>";
-                            }
-
-                           /* echo "<th>Duracsdfsdión</th>
-                                     <th>sdfsd</th>
-                                     <th>fsdfsd</th>";*/
+                             
                         }
-
+                        echo "<td><a method='post' name='eliminar' href='../model/borrar.php'>Eliminar</a></td>";
                         echo "</tr>";
                     }
 
-                ?>    <!-- 
-                    
-                     <th>sdff</th>
-                     <th>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</th>
-                    
-
-                    <tr>
-                     <th>fsdf</th>
-                     <th>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</th>
-                     <th>Durasfdsdción</th>
-                     <th>sdf</th>
-                     <th>fdsfsdfds</th>
-                    </tr>
-
-                    <tr>
-                     <th>Títufsdfsdflo</th>
-                     <th>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</th>
-                     <th>sdf</th>
-                     <th>sdf</th>
-                     <th>sdfsd</th>
-                    </tr> -->
-
+                ?>  
                 </table>
             </div>
             <button name="borrar" type="submit" class="btn btn-primary" style="width:120px;background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-minus"></span> Borrar</button>
