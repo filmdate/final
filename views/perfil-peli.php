@@ -146,6 +146,8 @@ $msg = new Messages();
     	<div class="criticas">
 
             <div id="coment">
+
+                <h2>Criticas</h2></br></br>
                 <!-- Listado de los comentarios de la película obtenida de la BD -->
                 <?php
 
@@ -224,7 +226,10 @@ $msg = new Messages();
 	</div> <!-- Cierre del div de críticas -->
 
     <!-- Pie de toda la página -->
-    <?php include("../includes/footer.html"); ?>
+    <?php 
+        echo "<link href=\"../css/perfil-peli.css\" rel=\"stylesheet\" type=\"text/css\" >";
+        include("../includes/footer.html"); 
+    ?>
 
     <!-- Para las ventanas modales -->
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->

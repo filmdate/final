@@ -7,7 +7,7 @@ ul,ol,li,form,input{margin:0; padding:0;}
 
 body {
   margin: 0;
-  background: #000;
+  background: #E6E6E6;
 
 }
 
@@ -39,7 +39,7 @@ footer{
   background-color: #E6E6E6;
   width: 100%;
   position: absolute;
-  top: 100%;
+  top: 200%;
   height: 66px;
   padding: 3px;
   
@@ -278,6 +278,9 @@ background: none;
 
 
 /* Criticas  ***********************************************************/
+h2{
+  color: #66cccc;
+}
 #contCriticas{
 
   background-color: #E6E6E6;
@@ -332,6 +335,9 @@ textarea{
 @media all and (max-width: 768px){
 
   #bgvid { display: none; }
+
+  video{ display: none; }
+
 
   #div_abajo{ isplay: none; }
 
