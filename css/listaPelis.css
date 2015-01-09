@@ -128,7 +128,7 @@ footer a:hover{
 #search input[type="text"] {
 	
 	outline: none;
-    background:   url(../images/busca.png) no-repeat 10px 6px #f2efef;
+    background:   url(../images/busca_gris.png) no-repeat 10px 6px #f2efef;
     background-color: rgba(0, 0, 0, 0);
     border: 2px solid #B2B2B2;
     opacity: 0.9
@@ -162,7 +162,7 @@ footer a:hover{
 
 /* Imagen corporativa */
 .imgLogo{
-	content:url("../images/logotxiki.png");
+	content:url("../images/logotxiki_gris.png");
 }
 
 /* Botón login */

@@ -181,7 +181,7 @@ $msg = new Messages();
 
                             if($coment=="comentario"){
                             
-                                echo $datos."<br/>";
+                                echo $datos."<br/><br/><br/>";
 
                             }
                         }          
@@ -205,13 +205,13 @@ $msg = new Messages();
                 else{ ?>
 
                     <!--Input para comentar la película -->
-                    <form role="form" method="post" action="../model/criticas.php">
+                    <form class="formulario" role="form" method="post" action="../model/criticas.php">
                         <div class="form-group">
                             <div class="input-group"  style="width:330px;">
-                                <textarea style="border-radius: 5px;" class="form-control" rows="3" name="criti" placeholder="Crítica"></textarea>
-                            </div></br>
+                                <textarea style="border-radius: 5px;width: 780px;" class="form-control" rows="2" name="criti" placeholder="Crítica"></textarea>
+                            </div>
                         </div>
-                        <button type="submit" name="enviarCritica" class="btn btn-primary" style="background:#00B8E6;border:none;">
+                        <button type="submit" name="enviarCritica" class="btn btn-primary" style="background:#66cccc;border:none;">
                             <span class="glyphicon glyphicon-comment"></span> Comenta</button>
                     </form>
 

@@ -36,10 +36,10 @@ video {
 /* Footer */
 footer{
 
-  background-color: #cccccc;
+  background-color: #E6E6E6;
   width: 100%;
   position: absolute;
-  top: 200%;
+  top: 100%;
   height: 66px;
   padding: 3px;
   
@@ -95,7 +95,6 @@ footer a:hover{
   top: 20%;
   left: 20%;
   width: 800px;
-  background: grey;
   height: 500px;
 
 }
@@ -281,7 +280,7 @@ background: none;
 /* Criticas  ***********************************************************/
 #contCriticas{
 
-  background-color: #cccccc;
+  background-color: #E6E6E6;
   position: absolute;
   top: 580px;
   width: 100%;
@@ -291,8 +290,7 @@ background: none;
 
 #coment{
 
-  background-color: #fff;
-  width: 600px;
+  width: 100%;
   height: auto;
  
 }
@@ -318,6 +316,12 @@ background: none;
 }
 
 #amplia img{ width:36px; }
+
+
+
+textarea{
+  width: 500px;
+  }
 
 
 /* ************************************************************************************************
