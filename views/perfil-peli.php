@@ -26,6 +26,7 @@ $msg = new Messages();
 	<link rel="stylesheet" type="text/css" href="../css/perfil-peli.css"/>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/perfil-peli.js"></script>
+    <script type="text/javascript" src="../js/valoracion.js"></script><!-- Valorar las estrellas -->
     <!--CSS bootstrap-->
     <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
     <!-- Mensajes flash -->
@@ -73,25 +74,7 @@ $msg = new Messages();
 
 	<div id="infopeli">
 
-        <?php 
-
-            // Se obtiene el titulo de la película mediante el método GET.
-            $titulo = $_GET['peli'];
-            echo "<h1> $titulo </h1>";
-
-        ?>
-
-		<!-- Voto de estrellas -->
-		<div class="ec-stars-wrapper">
-			<a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
-			<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-			<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-			<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-			<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
-		</div>
-
-        <!-- Muestra la sinopsis de la película correspondiente -->
-        <?php 
+        <?php
 
             // Importamos el fichero database.php para la conexión a la base de datos en la nube
             include_once("../config/database.php");
@@ -104,7 +87,25 @@ $msg = new Messages();
             // Se obtiene la id de la película desde las funciones pasando el parámetro de la peli obteniendo con el método GET.
             $id_pelicula=obtenerIdPelicula($_GET['peli']);
 
-            $_SESSION['id_pelicula']=$id_pelicula;
+            $_SESSION['id_pelicula']=$id_pelicula; 
+
+            // Se obtiene el titulo de la película mediante el método GET.
+            $titulo = $_GET['peli'];
+            echo "<h1> $titulo </h1>";
+
+        ?>
+
+		<!-- Voto de estrellas -->
+        <div id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="ec-stars-wrapper votacion">
+            <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="1" title="Votar con 1 estrellas">&#9733;</a>
+            <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="2" title="Votar con 2 estrellas">&#9733;</a>
+            <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="3" title="Votar con 3 estrellas">&#9733;</a>
+            <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="4" title="Votar con 4 estrellas">&#9733;</a>
+            <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="5" title="Votar con 5 estrellas">&#9733;</a>
+        </div> 
+
+        <!-- Muestra la sinopsis de la película correspondiente -->
+        <?php 
 
             // Es un array de datos sobre la película consultada en la bd
             $datosPelicula=obtenerDatosPelicula($_SESSION['id_pelicula']);
