@@ -309,7 +309,7 @@ h4 a{
 
 /* Focus del buscador */
 #search input[type="text"]:focus {
-    width: 156px;
+    width: 173px;
 }
 
 /* Footer */

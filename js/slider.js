@@ -1,5 +1,5 @@
 // Velocidad del cambio de imagen automatico
-var slideshowSpeed = 6000;
+var slideshowSpeed = 10000;
 
 // array que contiene las imagenes
 var photos = [ {
