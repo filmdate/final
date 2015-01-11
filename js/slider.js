@@ -3,13 +3,13 @@ var slideshowSpeed = 6000;
 
 // array que contiene las imagenes
 var photos = [ {
-		"image" : "loreak.jpg",
-	}, {
 		"image" : "slider1.jpg",
 	}, {
-		"image" : "slider.jpg",
+		"image" : "slider2.png",
 	}, {
-		"image" : "slider1.jpg",
+		"image" : "slider3.jpg",
+	}, {
+		"image" : "slider4.jpg",
 	}
 ];
 

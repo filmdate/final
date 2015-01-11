@@ -62,8 +62,10 @@
             <section id="cartelera">
                 <!-- Boton para ir hacia abajo -->
                 <div id="div_abajo">
-                    <center><span style="font-size:20px;color:grey;" class="glyphicon glyphicon-chevron-down glyphicon-refresh-animate"></span></center>
+                    <center><span class="glyphicon-refresh-animate"><img src="../images/flecha-abajo.png"></span></center>
                  </div> <!-- Cierre del btn_abajo -->
+
+
 
                 <h3> Cartelera </h3>
 
