@@ -269,6 +269,21 @@ h4 a{
 
 	}
 
+	/* estilos para los link del menu, para que no coja bootstrap */
+	.link{ 
+		color: #f2efef;
+		padding-right: 20px;
+		opacity: 0.9;
+		text-decoration: none;
+	}
+
+	.link:hover{
+
+		color: grey;
+		text-decoration: none;
+
+	}
+
 	nav ul {
 
        display: none;
