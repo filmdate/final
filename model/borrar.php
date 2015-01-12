@@ -13,8 +13,10 @@ $id=$_GET['id'];
 
 $collection=$bd->peliculas;
 
-//$collection->remove(array ('id' => $id));
-
+$eliminar=$collection->remove(array ('id' => $id));
+//$eliminar=$collection->remove('id' => new MongoId($id), true);
+var_dump($eliminar);
+/*
 if(!$collection->remove('id' => new MongoId($id), true)){
      die('erroret');
 }else{
@@ -22,7 +24,7 @@ if(!$collection->remove('id' => new MongoId($id), true)){
     header('Content-Type: application/json');
     echo json_encode(array('exito'=>true));
 }
-
+*/
 
 
 //} // Cierre del if --> variable registro

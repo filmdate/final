@@ -83,9 +83,6 @@ function mediaValoracion($id_pelicula){
 	// Variable global
 	global $collection;
 
-	// Se establece la colección
-	//$collection=$bd->valoracion;
-
 	// Se realiza una consulta para obtener la id de la película
 	$valoraciones=$collection->find(array('id_pelicula' => $id_pelicula));
 
@@ -93,51 +90,24 @@ function mediaValoracion($id_pelicula){
 
 			foreach ($datos as $campo => $dato){
 
-			// Filtramos el campo para obtener el dato
-				$cant++;
+				if($campo=="valoracion"){
 
-			}	// Cierre del bucle foreach
+					$total=$total+$dato;
+					$cant++;
 
-			
+				}
+
+			} // Cierre del bucle foreach
 
 	} // Cierre del bucle foreach
 
-	//cantidad de veces que esta la pelicula valorada por los usuaruios
-	//$cant=$valoraciones->count();
-
-	return $cant;
-
-	/*if($cant!=0){
-		// Recorremos los datos de esa película en concreto
-		foreach($valoraciones as $campos => $datos){
-
-			if($campos==$id_pelicula){
-
-				foreach ($datos as $campo => $dato){
-
-				// Filtramos el campo para obtener el dato
-					if($campo=='valoracion'){
-
-
-						$total=$total+$dato;
-
-					} // Cierre del if
-
-				}	// Cierre del bucle foreach
-
-			}	
-
-		} // Cierre del bucle foreach
+	if($cant!=0){
 
 		$media=$total/$cant;
 
-		return $media;
+	}
 
-	}else{
-
-		return $media;
-
-	}*/
+	return $media;
 
 }
 

@@ -96,18 +96,27 @@
                      <th>Duración</th>
                     </tr>
                 <?php
-
+                    include_once("../funciones/peliculas.php");
                     include_once("../config/database.php");
                     // Establecemos la colección
                     $collection=$bd->peliculas;
 
                     $pelis=$collection->find(array());
 
+
+
                     foreach ($pelis as $campo => $valor) {
 
-                        if($campo=="id"){
-                            echo "<tr id='$valor'>";
+                        foreach ($valor as $movies => $datos) {
+
+                            if($movies=="_id"){
+                            
+                                echo "<tr id='$datos'>";
+                                echo $datos;
+                            }
+                             
                         }
+                        
 
 
                         foreach ($valor as $movie => $dato) {
@@ -129,7 +138,7 @@
                             }
                              
                         }
-                        echo "<td><a method='post' name='eliminar' onclick='eliminar($valor)'>Eliminar</a></td>";
+                        echo "<td><a method='get' name='eliminar' onclick='eliminar($datos)'>Eliminar</a></td>";
                         echo "</tr>";
                     }
 
