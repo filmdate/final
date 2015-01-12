@@ -102,10 +102,26 @@ $msg = new Messages();
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="3" title="Votar con 3 estrellas">&#9733;</a>
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="4" title="Votar con 4 estrellas">&#9733;</a>
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="5" title="Votar con 5 estrellas">&#9733;</a>
+            <?php
+
+                include_once("../funciones/peliculas.php");
+
+                // Establecemos la colección
+                $collection=$bd->valoracion;
+
+                echo "<p>".mediaValoracion($_SESSION['id_pelicula'])."</p>";
+                //var_dump(mediaValoracion($_SESSION['id_pelicula']));
+
+            ?>
         </div> 
+
+
 
         <!-- Muestra la sinopsis de la película correspondiente -->
         <?php 
+
+            // Establecemos la colección
+            $collection=$bd->peliculas;
 
             // Es un array de datos sobre la película consultada en la bd
             $datosPelicula=obtenerDatosPelicula($_SESSION['id_pelicula']);
