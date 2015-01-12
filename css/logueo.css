@@ -83,14 +83,14 @@ footer a:hover{
 
 /*estilos para los link del menu, para que no coja bootstrap*/
 .link{
-	color: #f2efef;
+	color: #B2B2B2;
 	padding-right: 20px;
 	opacity: 0.9;
 	text-decoration: none;
 }
 
 .link:hover{
-	color: grey;
+	color: #66cccc;
 	text-decoration: none;
 }
 
@@ -252,12 +252,12 @@ footer a:hover{
 #search input[type="text"] {
 
 	outline: none;
-    background:   url(../images/busca.png) no-repeat 10px 6px #f2efef;
+    background:   url(../images/busca_gris.png) no-repeat 10px 6px #f2efef;
     background-color: rgba(0, 0, 0, 0);
-    border: 2px solid #f2efef;
+    border: 2px solid #B2B2B2;
     opacity: 0.9
     font-size: 13px;
-    color: #f2efef;
+    color: #B2B2B2;
     width: 160px;
     padding: 6px 15px 6px 35px;
     -webkit-border-radius: 20px;

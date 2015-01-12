@@ -23,7 +23,7 @@ $collection->insert($document);
 // Se realiza una consulta con el id_pelicula
 $datos=$collection->find(array('id_pelicula' => $pelicula_id));
 
-// Devuelve el objeto recién obtenido en formato JSON a la página
-echo json_encode($datos);
+// Devuelve el objeto JSON
+echo json_encode(iterator_to_array($datos));
 
 ?>
