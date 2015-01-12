@@ -68,7 +68,7 @@ include_once("../config/database.php");
 
                 <?php
 
-                    echo "<link href=\"../css/logueo.css\" rel=\"stylesheet\" type=\"text/css\" >";
+                    echo "<link href=\"../css/listaPelis.css\" rel=\"stylesheet\" type=\"text/css\" >";
 
                     // Establecemos la colección
                     $collection=$bd->peliculas;
@@ -139,7 +139,7 @@ include_once("../config/database.php");
 
                 <?php
 
-                    echo "<link href=\"../css/logueo.css\" rel=\"stylesheet\" type=\"text/css\" >";
+                    echo "<link href=\"../css/listaPelis.css\" rel=\"stylesheet\" type=\"text/css\" >";
 
                     // Establecemos la colección
                     $collection=$bd->peliculas;

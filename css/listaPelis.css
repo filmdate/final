@@ -32,6 +32,7 @@ footer{
 	top: 160%;
 	height: 66px;
 	padding: 3px;
+
 }
 
 footer a{
@@ -111,12 +112,12 @@ footer a:hover{
 	padding: 5px;
 	padding-left: 50px;
 	width: 100%;
-
+	
 }
 
 #proximamente h3{
 
-	color: #cccccc;
+	color: #A29F9F;
 	margin-left: 30px;
 
 }

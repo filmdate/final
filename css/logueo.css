@@ -29,7 +29,7 @@ header, section, footer, nav {
 
 /* Footer */
 footer{
-	background-color: #cccccc;
+	background-color: #E6E6E6;
 	width: 100%;
 	position: absolute;
 	top: 160%;
@@ -229,7 +229,7 @@ footer a:hover{
 
 /* Próximamente */
 #proximamente{
-	background-color: #cccccc;
+	background-color: #E6E6E6;
 	padding: 5px;
 	padding-left: 50px;
 	width: 100%;
