@@ -23,19 +23,35 @@ include_once("../funciones/peliculas.php");
 // Se comprueba si el comentario está definido
 if(isset($_POST['enviarCritica'])){
 	// Si el textarea de criticas está vacio
-	if($_POST['criti']==NULL){
+	if(isset($_POST['criti']) and $_POST['criti']==NULL){
+
+		// Establecemos la colección
+        $collection=$bd->peliculas;
+
+		$datos=obtenerDatosPelicula($_SESSION['id_pelicula']);
+
+		$titulo;
+
+		foreach ($datos as $campo => $valor) {
+
+			if($campo=="title"){
+
+				$titulo=$valor;
+
+			}
+		}
 
 		// Mensaje de error a mostrar
 		$msg->add('e', 'ERROR: No has introducido el comentario');
 
 		// Redirecciona al perfil de la película
-		header('Location: ../views/perfil-peli.php');
+		header('Location: ../views/perfil-peli.php?peli=' . $titulo);
 
 		// Imprime un mensaje y termina el script actual
 		exit();
 		
 	}
-	else{ // Si el textarea no está vacío
+	/*else{ // Si el textarea no está vacío
 
 		try {
 
@@ -89,7 +105,7 @@ if(isset($_POST['enviarCritica'])){
 
 		}// Cierre de la excepción
 
-	} 
+	} */
 
 } // Cierre del if --> variable registro
 
