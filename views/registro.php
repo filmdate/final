@@ -43,7 +43,7 @@ include_once("../config/database.php");
 		<div id="container"> 
 
             <!-- Encabezado de toda la página -->
-            <?php include("../includes/headerLogueo.html"); 
+            <?php include("../includes/headerListaPelis.html"); 
 	    
 	            //------------------------------------------------------------------------
 	            // Mostrar el mensaje flash
