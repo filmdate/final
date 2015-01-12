@@ -5,7 +5,7 @@ var slideshowSpeed = 10000;
 var photos = [ {
 		"image" : "slider1.jpg",
 	}, {
-		"image" : "slider2.png",
+		"image" : "slider2.jpg",
 	}, {
 		"image" : "slider3.jpg",
 	}, {

@@ -79,8 +79,7 @@ include_once("../config/database.php");
 
                             if($movie=="poster"){
 
-                                $poster=$dato;
-                                echo "<a href='perfil-peli.php'><img src=$poster></a>";
+                                $poster=$dato;                      
 
                             }
 
@@ -89,7 +88,11 @@ include_once("../config/database.php");
                             if($movie=="title"){
 
                                 $titulo=$dato;
-                                echo "<h4>" . $titulo . "</h4>";
+
+                                // Cuando el usuario haga clic en la imágen o en el título irá al perfil de la película
+                                echo "<a href='perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+                                echo "<h4><a href='perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
+
                             }
 
                             if($movie=="year"){
