@@ -51,7 +51,7 @@ if(isset($_POST['enviarCritica'])){
 		exit();
 		
 	}
-	/*else{ // Si el textarea no está vacío
+	else{ // Si el textarea no está vacío
 
 		try {
 
@@ -105,7 +105,7 @@ if(isset($_POST['enviarCritica'])){
 
 		}// Cierre de la excepción
 
-	} */
+	}
 
 } // Cierre del if --> variable registro
 
