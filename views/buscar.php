@@ -23,15 +23,7 @@
             <!-- Encabezado de toda la página -->
             <?php include("../includes/headerListaPelis.html"); ?>
 
-
-
             <?php include("../model/buscar.php"); ?>
-
-
-
-            <!-- Pie de toda la página -->
-            <?php include("../includes/footer.html"); ?>
-
 
             <!--Ventana Modal del Log In-->
             <?php include("../includes/ventanaModalLogin.html"); ?>
