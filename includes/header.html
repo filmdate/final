@@ -38,6 +38,7 @@
                         // Se inicia sesión o reanuda la sesión
                         session_start();
 
+                        // Si el usuario no está logueado
                         if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 
                             // Se incluye el archivo noLog que contiene los dos botones
@@ -45,7 +46,7 @@
 
 
                         }
-                        else{
+                        else{ // Si el usuario está logueado
 
                             // Link para ir al perfil de usuario
                             echo "<a href='profile.php' class='link'>Hola, <b>" . $_SESSION["nombreUsuario"]."</b></a>";

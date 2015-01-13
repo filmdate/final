@@ -116,10 +116,12 @@ $msg = new Messages();
             $titulo = $_GET['peli'];
             echo "<h1> $titulo </h1>";
 
-        ?>
+        ?>      
 
 		<!-- Voto de estrellas -->
         <div id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="ec-stars-wrapper votacion">
+
+            <?php if($_SESSION['id_usuario']!=''): ?>
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="1" title="Votar con 1 estrellas">&#9733;</a>
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="2" title="Votar con 2 estrellas">&#9733;</a>
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="3" title="Votar con 3 estrellas">&#9733;</a>
@@ -127,6 +129,8 @@ $msg = new Messages();
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="5" title="Votar con 5 estrellas">&#9733;</a>
             
             <?php
+
+                endif;
 
                 include_once("../config/database.php");
 
