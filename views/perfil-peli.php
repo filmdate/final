@@ -61,7 +61,45 @@ $msg = new Messages();
     <?php include("../includes/header.html"); ?>
 
     <video autoplay id="bgvid" loop>
-            <source src="https://dl.dropboxusercontent.com/s/wqfd0noja7wmjjc/video.mp4" type="video/mp4"></source>
+
+        <?php
+
+            // Importamos el fichero database.php para la conexión a la base de datos en la nube
+            include_once("../config/database.php");
+
+            include_once("../funciones/peliculas.php");
+
+            echo "<link href=\"../css/perfil-peli.css\" rel=\"stylesheet\" type=\"text/css\" >";
+
+
+            // Establecemos la colección
+            $collection=$bd->peliculas;
+
+            // Se obtiene la id de la película desde las funciones pasando el parámetro de la peli obteniendo con el método GET.
+            $id_pelicula=obtenerIdPelicula($_GET['peli']);
+
+            $_SESSION['id_pelicula']=$id_pelicula; 
+
+            // Se obtienen todos los datos de la pelicula
+            $pelicula=obtenerDatosPelicula($_SESSION['id_pelicula']);
+
+            foreach ($pelicula as $campo => $valor) {
+
+                $url;
+
+                if($campo=="trailer"){
+
+                    $url=$valor;
+                    echo "<source src='$url'></source>";
+
+
+                }               
+
+            }
+
+
+        ?>
+
     </video>
 
 	<!--Ventana Modal del Log In-->
@@ -73,19 +111,6 @@ $msg = new Messages();
 	<div id="infopeli">
 
         <?php
-
-            // Importamos el fichero database.php para la conexión a la base de datos en la nube
-            include_once("../config/database.php");
-
-            include_once("../funciones/peliculas.php");
-
-            // Establecemos la colección
-            $collection=$bd->peliculas;
-
-            // Se obtiene la id de la película desde las funciones pasando el parámetro de la peli obteniendo con el método GET.
-            $id_pelicula=obtenerIdPelicula($_GET['peli']);
-
-            $_SESSION['id_pelicula']=$id_pelicula; 
 
             // Se obtiene el titulo de la película mediante el método GET.
             $titulo = $_GET['peli'];

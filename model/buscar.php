@@ -20,7 +20,7 @@ require_once('../controller/class.messages.php');
 $msg = new Messages();
 
 echo "<link href=\"../css/mensajes.css\" rel=\"stylesheet\" type=\"text/css\" >";
-echo "<link href=\"../css/cartelera.css\" rel=\"stylesheet\" type=\"text/css\" >";
+echo "<link href=\"../css/listaPelis.css\" rel=\"stylesheet\" type=\"text/css\" >";
 
 if(isset($_POST['pelicula'])){
 
@@ -35,8 +35,6 @@ if(isset($_POST['pelicula'])){
 	$titulo_min;
 	$encontrado;
 
-	//var_dump(iterator_to_array($peliculas));
-
 	foreach($peliculas as $campos => $values){
 
 		foreach($values as $campo => $datos){			
@@ -45,7 +43,6 @@ if(isset($_POST['pelicula'])){
 
 				$titulo=$datos;
 				$titulo_min=strtolower($datos);
-				//echo $titulo . "<br>";
 				$encontrado = strpos($titulo_min, $peliculaUsuario);
 
 				if($encontrado !== FALSE){
@@ -70,6 +67,7 @@ if(isset($_POST['pelicula'])){
 		// Mensaje de error a mostrar
 		$msg->add('e', 'ERROR: No existe pelicula con la busqueda');
 
+		// Muestra el mensaje por pantalla
 		echo $msg->display();
 
 		// Imprime un mensaje y termina el script actual
@@ -84,6 +82,8 @@ if(isset($_POST['pelicula'])){
 
 			foreach ($mostrar as $campos => $datos) {
 
+				echo "<div class='peli'>";
+
 				foreach($datos as $campo => $dato){
 
 					$titulo;
@@ -94,41 +94,47 @@ if(isset($_POST['pelicula'])){
 
 					if($campo=="poster"){
 
-						$poster=$dato;
-						echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a><br>";						
+						$poster=$dato;												
 
 					}
+
+					//echo "<div class='descrip'>";					
 
 					if($campo=="title"){
 
 						$titulo=$dato;
-						echo "<h4><a href='../views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4><br>";
+						echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+						echo "<h4><a href='../views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
 
 					}
 
 					if($campo=="year"){
 
 						$year=$dato;
-						echo "<p> Ano: $year </p>";
+						echo "<p>Ano: $year </p>";
 
 					}
 
 					if($campo=="runtime"){
 
 						$runtime=$dato;
-						echo "<p> Duracion: $runtime mins </p>";
+						echo "<p>Duracion: $runtime mins </p>";
 
 					}
 
 					if($campo=="synopsis"){
 
 	                    $synopsis=$dato;
-	                    echo "<p> Sinopsis: $synopsis </p>";
+	                    echo "<p>Sinopsis: $synopsis </p>";
 
 
-	                } 
+	                }
+
+	                //echo "</div>"; 
 
 				}
+
+				echo "</div>";
 			}
 
 		}
