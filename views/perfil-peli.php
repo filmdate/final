@@ -112,9 +112,13 @@ $msg = new Messages();
 
                 $media=mediaValoracion("$id_pelicula");
 
-                $media=round($media);
+                $media=$media*2;
 
-                echo "<p> $media </p>";
+                $media=round($media,2);
+
+                $votos=cantVotos("$id_pelicula");
+
+                echo "<h3>Nota: ". $media ."</h3><br/><h3>       Votos: ". $votos ."</h3>";
 
             ?>
         </div>
@@ -160,7 +164,7 @@ $msg = new Messages();
 	</div> <!-- Cierre del id infopeli -->
 
 	<div id="div_abajo">
-        <center><span style="font-size:20px;color:grey;" class="glyphicon glyphicon-chevron-down glyphicon-refresh-animate"></span></center>
+        <center><span class="glyphicon-refresh-animate"><img src="../images/flecha-abajo.png"></span></center>
     </div> <!-- Cierre del btn_abajo -->
 
     <!-- Parte de las críticas -->

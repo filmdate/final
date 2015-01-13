@@ -111,4 +111,34 @@ function mediaValoracion($id_pelicula){
 
 }
 
+
+function cantVotos($id_pelicula){
+
+	$cant=0;
+
+	// Variable global
+	global $collection;
+
+	// Se realiza una consulta para obtener la id de la película
+	$valoraciones=$collection->find(array('id_pelicula' => $id_pelicula));
+
+	foreach($valoraciones as $campos => $datos){
+
+			foreach ($datos as $campo => $dato){
+
+				if($campo=="valoracion"){
+
+					$cant++;
+
+				}
+
+			} // Cierre del bucle foreach
+
+	} // Cierre del bucle foreach
+
+
+	return $cant;
+
+}
+
 ?>

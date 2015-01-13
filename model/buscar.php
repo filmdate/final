@@ -20,7 +20,7 @@ require_once('../controller/class.messages.php');
 $msg = new Messages();
 
 echo "<link href=\"../css/mensajes.css\" rel=\"stylesheet\" type=\"text/css\" >";
-
+echo "<link href=\"../css/cartelera.css\" rel=\"stylesheet\" type=\"text/css\" >";
 
 if(isset($_POST['pelicula'])){
 
@@ -68,7 +68,7 @@ if(isset($_POST['pelicula'])){
 	if(count($array)==0){
 
 		// Mensaje de error a mostrar
-		$msg->add('e', 'ERROR: Los datos no son validos');
+		$msg->add('e', 'ERROR: No existe pelicula con la busqueda');
 
 		echo $msg->display();
 
@@ -94,15 +94,15 @@ if(isset($_POST['pelicula'])){
 
 					if($campo=="poster"){
 
-						$poster=$dato;						
+						$poster=$dato;
+						echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a><br>";						
 
 					}
 
 					if($campo=="title"){
 
 						$titulo=$dato;
-						echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a><br>";
-						echo "<a href='../views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a><br>";
+						echo "<h4><a href='../views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4><br>";
 
 					}
 

@@ -122,7 +122,7 @@ background: none;
   display: inline-block;
   /* Volver a dar tamaño al texto */
   font-size: 30px;
-  color: #888;
+  color: #FFFF94;
 }
 
 .ec-stars-wrapper:hover a {
@@ -135,7 +135,7 @@ background: none;
  */
 .ec-stars-wrapper > a:hover ~ a {
   background: none;
-  color: #888;
+  color: #FFFF94;
   text-decoration: none;
 }
 
@@ -250,7 +250,7 @@ background: none;
 }
 
 #search input[type="text"]:focus {
-    width: 156px;
+    width: 173px;
 }
 
 /* InfoPeli  ***********************************************************/
@@ -265,7 +265,7 @@ background: none;
   padding: 2rem;
   width: 580px;
   font-size: 1.2rem;
-  height: 60em;
+  height: 430px;
 }
 
 #infopeli h1{
@@ -300,7 +300,7 @@ h2{
 
 /* Botones para el vídeo */
 #buttons{
-
+    margin-top: 80px;
     float: left;
     width:70px;
     height: 22px;
@@ -311,6 +311,7 @@ h2{
 
 /* Botón para ampliar el vídeo */
 #amplia{
+    margin-top: 80px;
     position: relative;
     float: right;
     width:30px;
