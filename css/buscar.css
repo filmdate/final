@@ -90,37 +90,6 @@ footer a:hover{
 
 }
 
-/* Cartelera */
-#cartelera{
-	padding: 5px;
-	padding-left: 50px;
-	width: 100%;
-	background-color: #f2efef;
-
-}
-
-#cartelera h3{
-
-	color: #cccccc;
-	margin-left: 30px;
-	
-}
-
-/* Próximamente */
-#proximamente{
-
-	padding: 5px;
-	padding-left: 50px;
-	width: 100%;
-	
-}
-
-#proximamente h3{
-
-	color: #A29F9F;
-	margin-left: 30px;
-
-}
 
 /* Buscador */
 #buscador{
@@ -228,13 +197,6 @@ h4 a{
 /*TABLET:Cuando la anchura de la ventana contenga como máximo 700px se cambia el diseño */
 @media all and (max-width: 768px){
 
-	#cartelera, #proximamente{
-
-		position: relative;
-		left: 0px;
-		top: 0px;
-
-	}
 
 	/* Encabezado ************************************/
 	#header{
@@ -317,34 +279,7 @@ h4 a{
 	    color: #B2B2B2;
 	}	
 
-    /* Cartelera */
-	#cartelera{
 
-		margin-top: 50px;
-		height: 2200px;
-		padding: 12px;
-		padding-left: 60px;
-		width: 100%;
-
-	}
-
-	#proximamente{
-
-		margin-top: 50px;
-		height: 2200px;
-		padding: 12px;
-		padding-left: 60px;
-		width: 100%;
-
-	}
-
-	#proximamente h3{
-		margin-left: 9px;
-	}
-
-	#cartelera h3{
-		margin-left: 9px;
-	}
 
 	.peli{
 		margin: 10px;
@@ -368,24 +303,7 @@ h4 a{
 
 } 
 
-/*SMARTPHONE:Cuando la anchura de la ventana contenga como máximo 320px se cambia el diseño */
-@media all and (max-width: 320px){
 
-	/* Cartelera */
-	#cartelera{
-		padding: 12px;
-		padding-left: 60px;
-		width: 100%;
-
-	}
-
-	#proximamente{
-		padding: 12px;
-		padding-left: 60px;
-		width: 100%;
-
-	}
-}
 
 /***************************/
 
@@ -418,34 +336,28 @@ h2 {
   font-weight: 700;
 }
 
-.wrapper {
-  margin: 0 auto;
-  padding: 20px;
-  max-width: 95%;
-  border: 2px solid blue;
+#titulo h3{
+	margin-left: 150px;
+	margin-top: 70px;
+	color: #cccccc;
+	
 }
 
 /* layout */
-.container {
-  height: 100px;
-  border: 2px solid red;
-}
 .primary {
-	margin-left: 50px;
-  margin-bottom: 20px;
-  border: 2px solid green;
+	margin-top: 30px;
+  	margin-left: 150px;
+  	margin-bottom: 20px;
+  	height: 230px;
 }
 
 .secondary {
+	text-align: justify;
+	padding-right: 150px;
+	margin-top: 30px;
 	height: 230px;
-  margin-bottom: 20px;
-  border: 2px solid pink;
+  	margin-bottom: 20px;
 }
-
-/*#resultados{
-	margin-left: 100px;
-	margin-right: 100px;
-}*/
 
 @media all and ( min-width: 600px ) {
   

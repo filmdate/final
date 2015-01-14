@@ -85,24 +85,20 @@ if(isset($_POST['pelicula'])){
 		foreach($array as $values){
 
 			$mostrar=$collection->find(array('title' => $values));
-echo "<div class='wrapper'>";
 			foreach ($mostrar as $campos => $datos) {
 				
-		echo "<div class='container clearfix'>";
-
-				//echo "<div class='peli'>";
+				
 
 				foreach($datos as $campo => $dato){
 
-
-
 					if($campo=="poster"){
 
-						$poster=$dato;												
+						$poster=$dato;	
+							echo "<div class='primary'>";
+							echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+						echo "</div>";							
 
-					}
-
-					//echo "<div class='descrip'>";					
+					}					
 
 					if($campo=="title"){
 
@@ -122,26 +118,20 @@ echo "<div class='wrapper'>";
 					if($campo=="synopsis"){
 
 	                    $synopsis=$dato;
-	                }
+	                }        
 
-	                
 
-				}
-				echo "<div class='primary'>";
-					echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
-				echo "</div>";
+				}	
+	            
 				echo "<div class='secondary'>";
 					echo "<h4><a href='../views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
 					echo "<p>Ano: $year </p>";
 					echo "<p>Duracion: $runtime mins </p>";
 					echo "<p>Sinopsis: $synopsis </p>";
-				echo "</div>"; 
-
-			echo "</div>"; //div clearfix
+				echo "</div>";
 			}
-echo "</div>"; //div wraper
-		}
 		
+		}
 	}
 }
 	
