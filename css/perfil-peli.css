@@ -300,8 +300,9 @@ h2{
 
 /* Botones para el vídeo */
 #buttons{
-    margin-top: 80px;
-    float: left;
+    position: absolute;
+    top:513px;
+    left: 25px;
     width:70px;
     height: 22px;
     cursor: pointer;
@@ -311,9 +312,9 @@ h2{
 
 /* Botón para ampliar el vídeo */
 #amplia{
-    margin-top: 80px;
-    position: relative;
-    float: right;
+    position: absolute;
+    top:513px;
+    left: 75px;
     width:30px;
     height: 22px;
     cursor: pointer;

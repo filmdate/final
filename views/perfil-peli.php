@@ -127,32 +127,17 @@ $msg = new Messages();
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="3" title="Votar con 3 estrellas">&#9733;</a>
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="4" title="Votar con 4 estrellas">&#9733;</a>
             <a href="#" id="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>" class="estrellasValoracion" value="5" title="Votar con 5 estrellas">&#9733;</a>
+            <?php endif; ?>
+            <div id="estrella">
+                <?php
+
+                    include_once("../includes/valoracion.php");
+                 ?>
+             </div>
             
-            <?php
-
-                endif;
-
-                include_once("../config/database.php");
-
-                include_once("../funciones/peliculas.php");
-
-                // Establecemos la colección
-                $collection=$bd->valoracion;
-
-                $media=mediaValoracion("$id_pelicula");
-
-                $media=$media*2;
-
-                $media=round($media,2);
-
-                $votos=cantVotos("$id_pelicula");
-
-                echo "<h3>Nota: ". $media ."</h3><br/><h3>       Votos: ". $votos ."</h3>";
-
-            ?>
         </div>
 
-        <div id="estrella"> </div>
+        
 
 
 

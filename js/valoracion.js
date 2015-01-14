@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	$(".estrellasValoracion").click(function() {
 
+
 		// Se obtienen los atributos de la estrella que hizo clic
 	    var estrella=this;
 
@@ -22,9 +23,9 @@ $(document).ready(function() {
 		  	// función que se ejecutará cuando obtengamos la respuesta
 		  	success:function(data){
 
-		  		var msg="Ha sido valorado";
-
-		  		$('#estrella').text(msg);
+		  		//var msg="Ha sido valorado";
+		  		var id = $(estrella).attr("id");
+		  		$('#estrella').load('../includes/valoracion.php?id_pelicula='+id);
 
 
           	}
