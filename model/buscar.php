@@ -20,7 +20,7 @@ require_once('../controller/class.messages.php');
 $msg = new Messages();
 
 echo "<link href=\"../css/mensajes.css\" rel=\"stylesheet\" type=\"text/css\" >";
-echo "<link href=\"../css/listaPelis.css\" rel=\"stylesheet\" type=\"text/css\" >";
+echo "<link href=\"../css/buscar.css\" rel=\"stylesheet\" type=\"text/css\" >";
 
 if(isset($_POST['pelicula'])){
 
@@ -76,21 +76,25 @@ if(isset($_POST['pelicula'])){
 	}
 	else{
 
-		foreach($array as $values){
-
-			$mostrar=$collection->find(array('title' => $values));
-
-			foreach ($mostrar as $campos => $datos) {
-
-				echo "<div class='peli'>";
-
-				foreach($datos as $campo => $dato){
-
 					$titulo;
 					$year;
 					$runtime;
 					$poster;
 					$synopsis;
+
+		foreach($array as $values){
+
+			$mostrar=$collection->find(array('title' => $values));
+echo "<div class='wrapper'>";
+			foreach ($mostrar as $campos => $datos) {
+				
+		echo "<div class='container clearfix'>";
+
+				//echo "<div class='peli'>";
+
+				foreach($datos as $campo => $dato){
+
+
 
 					if($campo=="poster"){
 
@@ -103,42 +107,41 @@ if(isset($_POST['pelicula'])){
 					if($campo=="title"){
 
 						$titulo=$dato;
-						echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
-						echo "<h4><a href='../views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
-
 					}
 
 					if($campo=="year"){
 
 						$year=$dato;
-						echo "<p>Ano: $year </p>";
-
 					}
 
 					if($campo=="runtime"){
 
 						$runtime=$dato;
-						echo "<p>Duracion: $runtime mins </p>";
-
 					}
 
 					if($campo=="synopsis"){
 
 	                    $synopsis=$dato;
-	                    echo "<p>Sinopsis: $synopsis </p>";
-
-
 	                }
 
-	                //echo "</div>"; 
+	                
 
 				}
-
+				echo "<div class='primary'>";
+					echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
 				echo "</div>";
+				echo "<div class='secondary'>";
+					echo "<h4><a href='../views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
+					echo "<p>Ano: $year </p>";
+					echo "<p>Duracion: $runtime mins </p>";
+					echo "<p>Sinopsis: $synopsis </p>";
+				echo "</div>"; 
+
+			echo "</div>"; //div clearfix
 			}
-
+echo "</div>"; //div wraper
 		}
-
+		
 	}
 }
 	

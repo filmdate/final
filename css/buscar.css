@@ -179,7 +179,8 @@ footer a:hover{
 
 	position: relative;
 	float: left;
-	margin: 38px;
+	margin-left: 200px;
+	margin-right: 200px;
 
 }
 
@@ -384,4 +385,82 @@ h4 a{
 		width: 100%;
 
 	}
+}
+
+/***************************/
+
+/* resets */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.clearfix:after,
+.clearfix:before{
+  content: "";
+  display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+
+
+h1 {
+  font-family: "Lobster", cursive;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+h2 {
+  font-weight: 700;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 95%;
+  border: 2px solid blue;
+}
+
+/* layout */
+.container {
+  height: 100px;
+  border: 2px solid red;
+}
+.primary {
+	margin-left: 50px;
+  margin-bottom: 20px;
+  border: 2px solid green;
+}
+
+.secondary {
+	height: 230px;
+  margin-bottom: 20px;
+  border: 2px solid pink;
+}
+
+/*#resultados{
+	margin-left: 100px;
+	margin-right: 100px;
+}*/
+
+@media all and ( min-width: 600px ) {
+  
+  .container {
+    padding-right: 0px;
+  }
+  .primary {
+    float: left;
+    padding-right: 60px;
+    width: 15%;
+  }
+  .secondary {
+    float: right;
+    margin-right: 0px;
+    width: 70%;
+  }
+  
 }

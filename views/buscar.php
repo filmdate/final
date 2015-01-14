@@ -23,7 +23,9 @@
             <!-- Encabezado de toda la página -->
             <?php include("../includes/headerListaPelis.html"); ?>
 
+
             <?php include("../model/buscar.php"); ?>
+
 
             <!--Ventana Modal del Log In-->
             <?php include("../includes/ventanaModalLogin.html"); ?>
