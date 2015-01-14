@@ -10,6 +10,11 @@ if( !session_id() ) session_start();
 //------------------------------------------------------------------------------
 require_once('../controller/class.messages.php');
 $msg = new Messages();
+
+if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
+    header('Location: ../index.php');
+}
+
 ?>
 
 <html>

@@ -1,3 +1,15 @@
+<?php
+
+//------------------------------------------------------------------------------
+// A session is required for the messages to work
+//------------------------------------------------------------------------------
+if( !session_id() ) session_start();
+if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
+    header('Location: ../index.php');
+}
+
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 

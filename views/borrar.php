@@ -1,3 +1,15 @@
+<?php
+
+//------------------------------------------------------------------------------
+// A session is required for the messages to work
+//------------------------------------------------------------------------------
+if( !session_id() ) session_start();
+if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
+    header('Location: ../index.php');
+}
+
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 
@@ -47,8 +59,8 @@
                         <!--Seccion Desplegable-->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Usuarios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="anadir.html">Añadir</a></li>
-                                <li><a href="listar.html">Listar</a></li>
+                                <li><a href="anadir.php">Añadir</a></li>
+                                <li><a href="listar.php">Listar</a></li>
                                 <li><a href="borrar.php">Borrar</a></li>
                             </ul>
                         </li>
@@ -56,8 +68,8 @@
                         <!--Seccion Desplegable2-->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-film"></span> Peliculas <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="anadir.html">Añadir</a></li>
-                                <li><a href="listar.html">Listar</a></li>
+                                <li><a href="anadir.php">Añadir</a></li>
+                                <li><a href="listar.php">Listar</a></li>
                                 <li><a href="borrar.php">Borrar</a></li>
                             </ul>
                         </li>
