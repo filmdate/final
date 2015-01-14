@@ -20,6 +20,8 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
         <title> filmdate </title>
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/borrar.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
         <style type="text/css">
 
@@ -115,69 +117,44 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 
                     $pelis=$collection->find(array());
 
+                    foreach ($pelis as $campo => $valor) {                  
 
+                    foreach ($valor as $movie => $dato) {
 
-                    foreach ($pelis as $campo => $valor) {
+                        $id;
+                        $titulo;
+                        $descripcion;
 
-                        foreach ($valor as $movies => $datos) {
+                        if($movie=="_id"){
 
-                            if($movies=="_id"){
-                            
-                                echo "<tr id='$datos'>";
-                                echo $datos;
-                            }
-                             
+                            $id=$dato;
+                            echo "<tr id=fila_" . $id .">";
+
                         }
-                        
 
+                        if($movie=="title"){
 
-                        foreach ($valor as $movie => $dato) {
+                            $titulo=$dato;
+                            echo "<td>" . $titulo . "</td>";
 
-                            $titulo;
-                            $descripcion;
-
-                            if($movie=="title"){
-
-                                $titulo=$dato;
-                                echo "<td>" . $titulo . "</td>";
-
-                            }
-
-                            if($movie=="synopsis"){
-
-                                $descripcion=$dato;
-                                echo "<td><p align='justify'>" . $descripcion . "</p></td>";
-                            }
-                             
                         }
-                        echo "<td><a method='get' name='eliminar' onclick='eliminar($datos)'>Eliminar</a></td>";
-                        echo "</tr>";
+
+                        if($movie=="synopsis"){
+
+                            $descripcion=$dato;
+                            echo "<td><p align='justify'>" . $descripcion . "</p></td>";
+                        }
+                         
                     }
 
-                ?>  
+                    echo "<td>" ?><a id="eliminar" name="eliminar" onclick="eliminar('<?php echo htmlspecialchars($id); ?>')" class="btn btn-primary" style="background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-trash"></span></a> <?php "</td>";
+                    echo "</tr>";
+                }
+
+            ?>  
                 </table>
             </div>
-            <button name="borrar" type="submit" class="btn btn-primary" style="width:120px;background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-minus"></span> Borrar</button>
-                <p><br/>
         </div>
-        <script type="text/javascript">
-        function eliminar(id){          
-            
-            // con el método $.get hacemos una petición GET mediante AJAX con jQuery
-            // 1. El primer parámetro es la dirección a donde se va a hacer la petición y los parámetros de la misma
-            // en este caso el parámetro será el id de la persona que se va a eliminar.                 // 2. El segundo parámetro es la función que se va a ejecutar cuando se reciba la respuesta del servidor
-            $.get('../model/borrar.php?id='+id, 
-            function(data){
-                if (data.exito != true){
-                  alert('Error');
-                }else{
-                    // si la respuesta fue exitosa entonces eliminamos la fila de la tabla 
-                    $('#fila_'+id).remove();
-                }
-            });                       
-        }
-
-        </script>
             
         <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->
         <script type="text/javascript" src="../css/dist/js/bootstrap.min.js"></script>

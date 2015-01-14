@@ -54,11 +54,23 @@ if(isset($_POST['login'])){
 			if(comprobarPassword($_POST['email'],md5($_POST['password']))==true){ //Si la contraseña coincide
 
 				if($_POST['email']=="admin@admin.com"){
+
+					// Se obtiene el id del usuario desde la bd
+					$id_usuario=obtenerIdUsuario($_POST['email']);
+
+					// Si la variable de sesión id no está definido
+					if(!isset($_SESSION['id_usuario'])){
+
+						//Se establece la variable de sesión del usuario, que será el id.
+						$_SESSION['id_usuario']=$id_usuario;
+						
+					}
+
 					// Redirecciona al perfil admin
 					header("location: ../views/admin.php");
 
 				}
-				else{ // S no es administrador
+				else{ // Si no es administrador
 
 					// Se obtiene el id del usuario desde la bd
 					$id_usuario=obtenerIdUsuario($_POST['email']);
