@@ -7,7 +7,7 @@
         $id_pelicula=$_GET['id_pelicula'];           
     }
     $collection=$bd->criticas;
-    $comenta = $collection->find(array('id_pelicula' => $id_pelicula));
+    $comenta = $collection->find(array('id_pelicula' => "$id_pelicula"));
     $id_usuario;
     $critica;
     $username;
