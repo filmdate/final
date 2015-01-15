@@ -1,6 +1,18 @@
 <?php
 
                     include_once("../config/database.php");
+
+                    //------------------------------------------------------------------------------
+// A session is required for the messages to work
+//------------------------------------------------------------------------------
+if( !session_id() ) session_start();
+
+//------------------------------------------------------------------------------
+// Include the Messages class and instantiate it
+//------------------------------------------------------------------------------
+require_once('../controller/class.messages.php');
+$msg = new Messages();
+
                     $id_pelicula;
 
                     if(isset($_GET['id_pelicula'])){

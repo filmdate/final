@@ -92,21 +92,20 @@
                             $runtime;
                             $poster;
 
-                            if($movie=="poster"){
+                            if($movie=="title"){
 
-                            $poster=$dato;                      
-
+                                $titulo=$dato;
                             }
 
                             echo "<div class='descrip'>";
 
-                            if($movie=="title"){
+                            if($movie=="poster"){
 
-                                $titulo=$dato;
+                                $poster=$dato;
                                 echo "<a href='views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
-                                echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
+                                echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";                      
 
-                            }
+                            }                            
 
                             if($movie=="year"){
 
@@ -162,19 +161,20 @@
                             $runtime;
                             $poster;
 
-                            if($movie=="poster"){
+                            if($movie=="title"){
 
-                            $poster=$dato;                      
-
+                                $titulo=$dato;
                             }
 
                             echo "<div class='descrip'>";
 
-                            if($movie=="title"){
+                            if($movie=="poster"){
 
-                                $titulo=$dato;
+                                $poster=$dato;
+                                
+                                // Cuando el usuario haga clic en la imágen o en el título irá al perfil de la película
                                 echo "<a href='views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
-                                echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
+                                echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";                      
 
                             }
 

@@ -48,8 +48,11 @@ $(document).ready(function() {
 	        contenido : document.getElementById("critica").value // le pasamos la critica realizada por el usuario
 
 	    };
-	    alert(datosClick);
-	    console.log(datosClick);
+	    
+	    /*salert(datosClick.pelicula_id);
+	    alert(datosClick.usuario_id);
+	    alert(datosClick.contenido);*/
+	    
 
 	    // Se envía el valor al archivo php
 	    $.ajax({

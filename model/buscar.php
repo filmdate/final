@@ -94,8 +94,8 @@ if(isset($_POST['pelicula'])){
 					if($campo=="poster"){
 
 						$poster=$dato;	
-							echo "<div class='primary'>";
-							echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+						echo "<div class='primary'>";
+						echo "<a href='../views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
 						echo "</div>";							
 
 					}					

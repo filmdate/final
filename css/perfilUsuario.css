@@ -19,18 +19,6 @@ body.droppable .profile-avatar-wrap {
   z-index: 9999;
 }
 
-h1 {
-
-  margin: 0 0 30px 0;
-  border-bottom: 2px solid #66cccc;
-}
-
-h3 {
-
-  clear: both;
-  margin: 100px 0 0 0;
-}
-
 
 /***********************************************************************************************
                      Selectores por CLASE 
@@ -50,7 +38,7 @@ h3 {
 
 .profile-avatar-wrap {
 
-  width: 33.33%;
+  width: 25%;
   float: left;
   margin: 0 20px 5px 0;
   position: relative;
@@ -74,6 +62,13 @@ h3 {
 
   width: 100%;
   display: block;
+  float: left;
+
+}
+
+.editarDatos {
+
+  float: right;
 
 }
 
@@ -101,4 +96,83 @@ h3 {
   left: 10%;
   width: 80%;
   
+}
+
+#perfilTitulo {
+
+  margin: 0 0 30px 0;
+  border-bottom: 2px solid #66cccc;
+}
+
+#arrastrar {
+
+  clear: both;
+  margin: 100px 0 0 0;
+  font-size: 24px;
+
+}
+
+/* ************************************************************************************************
+                                            RESPONSIVE
+************************************************************************************************ /
+
+/*TABLET:Cuando la anchura de la ventana contenga como máximo 700px se cambia el diseño */
+@media all and (max-width: 768px){
+
+
+  .page-wrap {
+
+    margin: 33px auto;
+
+  }
+
+  #perfilTitulo {
+
+    margin: 20px;
+    font-size: 16px;
+    border-bottom: 1px solid #66cccc;
+    min-width: 80px;
+    width: 27%;
+    display: -webkit-box; /* Chrome*/
+    -webkit-flex: 1; /* Safari 6.1+ */
+
+  }
+
+  #arrastrar {
+  
+    margin: 0px 0 0 50px;
+    font-size: 12px;    
+
+  }
+
+  #uploader{
+
+    font-size: 10px;  
+  }  
+
+  input[type="file"]{
+
+    margin: 0 0 0 50px;
+
+  }
+
+  .profile-avatar-wrap img {
+
+    margin: 0 0 0 50px;
+    width: 50%;
+    display: block;
+
+  }
+
+  .editarDatos {
+
+    width: 100%;
+    padding: 20px;
+
+  }
+
+  .profile {
+    padding-right: 0px;
+  }
+
 }

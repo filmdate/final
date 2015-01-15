@@ -54,21 +54,22 @@
 						$runtime;
 						$poster;
 
-						if($movie=="poster"){
+                        if($movie=="title"){
 
-							$poster=$dato;						
+                            $titulo=$dato;
+                        }
 
-						}
+                        echo "<div class='descrip'>";
 
-						echo "<div class='descrip'>";
+                        if($movie=="poster"){
 
-						if($movie=="title"){
+                            $poster=$dato;
+                            
+                            // Cuando el usuario haga clic en la imágen o en el título irá al perfil de la película
+                            echo "<a href='perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+                            echo "<h4><a href='perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";                      
 
-							$titulo=$dato;
-							echo "<a href='perfil-peli.php?peli=$titulo'><img src=$poster></a>";
-							echo "<h4><a href='perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";
-
-						}
+                        }
 
 						if($movie=="year"){
 

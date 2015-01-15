@@ -26,6 +26,9 @@ $comentario=$_POST['comentario'];
 // Establecemos la colección
 $collection=$bd->peliculas;
 
+
+
+
 $datos=obtenerDatosPelicula($id_pelicula);
 
 $titulo;
@@ -68,11 +71,11 @@ foreach ($datos as $campo => $valor) {
 	    	);
 
 			// Se inserta el documento en la colección llamado criticas
-			$collection2=$bd->criticas;
-			$collection2->insert($document);
+			$collection=$bd->criticas;
+			$collection->insert($document);
 
 			// Se realiza una consulta con el id_pelicula
-			$criti=$collection2->find(array('id_pelicula' => $pelicula_id));
+			$criti=$collection->find(array('id_pelicula' => $id_pelicula));
 
 			// Devuelve el objeto JSON
 			echo json_encode(iterator_to_array($criti));

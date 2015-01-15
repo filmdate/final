@@ -29,7 +29,6 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
 		<!-- El diseño está en un archivo externo -->
-        <link rel="stylesheet" href="../css/main.css" /> 
 		<link rel="stylesheet" href="../css/perfilUsuario.css" />
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
@@ -70,7 +69,7 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                     // Muestra la variable de sesión del nombreUsuario
                     if (isset($_SESSION['nombreUsuario'])) {
                                
-                        echo "<h1>Perfil de ". $_SESSION["nombreUsuario"] . "</h1>"; 
+                        echo "<h1 id='perfilTitulo'>Perfil de ". $_SESSION["nombreUsuario"] . "</h1>"; 
 
                     }
 
@@ -78,9 +77,7 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 
                 <div class="profile">
 
-                    <div class="profile-avatar-wrap">
-                        <img src="../images/256.jpg" id="profile-avatar" alt="Image for Profile">
-                    </div>
+                    <div class="editarDatos">
 
                         <?php
 
@@ -113,10 +110,16 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                             padding-left:5px;margin-right:10px;
                             outline:none;"><span class="glyphicon glyphicon-pencil"></span></button>
 
+                    </div>
+
 
                 </div> <!-- Cierre de la clase profile -->
 
-                <h3>Arrastra la imagen o seleccionala:</h3>
+                <div class="profile-avatar-wrap">
+                        <img src="../images/256.jpg" id="profile-avatar" alt="Image for Profile">
+                    </div>
+
+                <h3 id="arrastrar">Arrastra la imagen o seleccionala:</h3>
                 <input type="file" id="uploader">
 
             </div> <!--  Cierre div de la clase page-wrap -->
