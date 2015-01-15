@@ -41,7 +41,7 @@ foreach ($datos as $campo => $valor) {
 }
 
 // Si el textarea de criticas está vacio
-if(isset($_POST['contenido']) or $_POST['contenido']==NULL){
+if(isset($comentario) and $comentario==NULL){
 
 			// Mensaje de error a mostrar
 	$msg->add('e', 'ERROR: No has introducido el comentario');
