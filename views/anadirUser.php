@@ -44,18 +44,18 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                         <!--Seccion Desplegable-->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Usuarios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="anadir.html">Añadir</a></li>
-                                <li><a href="listar.html">Listar</a></li>
-                                <li><a href="borrar.php">Borrar</a></li>
+                                <li><a href="anadirUser.php">Añadir</a></li>
+                                <li><a href="listarUser.php">Listar</a></li>
+                                <li><a href="borrarUser.php">Borrar</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                         <!--Seccion Desplegable2-->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-film"></span> Peliculas <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="anadir.html">Añadir</a></li>
-                                <li><a href="listar.html">Listar</a></li>
-                                <li><a href="borrar.php">Borrar</a></li>
+                                <li><a href="anadirPeli.php">Añadir</a></li>
+                                <li><a href="listarPeli.php">Listar</a></li>
+                                <li><a href="borrarPeli.php">Borrar</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -79,48 +79,39 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
         <!--Formulario-->
         <div class="container">
         <div style="position:relative;top:30px;left:20px;">
-            <form method="post" role="form" action="../model/anadir.php">
+            <form method="post" role="form" action="../model/registro.php">
             <!--Input-->
                 <div class="form-group">
-                    <label for="usr" style="color:#fff;text-align: left;">Titulo de la película</label>
+                    <label for="usr" style="color:#fff;text-align: left;">Email</label>
                     <div class="input-group"  style="width:330px;">
-                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Nombre" name="nombre">
+                        <input  style="border-radius: 5px;" type="email" class="form-control"  placeholder="Email" name="email">
                     </div>
                 </div>
                 <br/>
             <!--Input-->
                 <div class="form-group">
-                    <label for="usr" style="color:#fff">Descripción</label>
+                    <label for="usr" style="color:#fff">Nombre de usuario</label>
                     <div class="input-group"  style="width:330px;">
-                        <textarea style="border-radius: 5px;" class="form-control" rows="3"  placeholder="Descripción" name="descripcion"></textarea>
+                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Usuairo" name="username">
                     </div>
                 </div>
                 <br/>
             <!--Input-->
                 <div class="form-group">
-                    <label for="usr" style="color:#fff">Duración</label>
+                    <label for="usr" style="color:#fff">Contraseña</label>
                     <div class="input-group"  style="width:330px;">
-                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Duración" name="duracion">
+                        <input  style="border-radius: 5px;" type="password" class="form-control" id="usr" placeholder="Contraseña" name="password">
                     </div>
                 </div>
                 <br/>
             <!--Input-->
                 <div class="form-group">
-                    <label for="usr" style="color:#fff">Reparto</label>
+                    <label for="usr" style="color:#fff">Repite la contraseña</label>
                     <div class="input-group"  style="width:330px;">
-                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Reparto" name="reparto">
+                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Repite la contraseña" name="password2">
                     </div>
                 </div>
                 <br/>
-            <!--Input-->
-                <div class="form-group">
-                    <label for="usr" style="color:#fff">Calificación</label>
-                    <div class="input-group"  style="width:330px;">
-                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Calificación" name="calificacion">
-                    </div>
-                </div>
-                <br/>
-
                 <button name="anadir" type="submit" class="btn btn-primary" style="width:120px;background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-plus"></span> Añadir</button>
                 <br/>
             </form>

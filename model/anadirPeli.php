@@ -12,7 +12,7 @@ if(isset($_POST['anadir'])){
 	if($_POST['nombre']==NULL or $_POST['descripcion']==NULL or $_POST['duracion']==NULL or $_POST['reparto']==NULL or $_POST['calificacion']==NULL){
 
 		// Se muestra un mensaje por pantalla
-		echo "Los campos estan vacios";
+		echo "Los campos estan vac&iacute;os";
 		exit;
 	}
 	else{ // Si los campos no están vacíos
@@ -24,7 +24,7 @@ if(isset($_POST['anadir'])){
 		if(peliculaExiste($_POST['nombre'])==true){
 
 			// Se muestra un mensaje por pantalla
-			echo "La pelicula ya esta dada de alta";
+			echo "La pel&iacute;cula ya esta dada de alta";
 			exit;
 		}
 		else{ 			
@@ -46,7 +46,7 @@ if(isset($_POST['anadir'])){
 				$collection->insert($document);
 
 				// Redirecciona al perfil del usuario
-				header("location: ../views/anadir.html");
+				header("location: ../views/anadirPeli.php");
 
 			}
 			catch (MongoCursorException $e) {

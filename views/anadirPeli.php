@@ -16,27 +16,12 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 	<!-- Cabecera de toda la página -->
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title> filmdate </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title> filmdate </title>
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
-        <style type="text/css">
 
-                .contenido{
-                    text-align: center;
-                    margin-top: 250px;
-                }
-                .contenido p{
-                    color: #fff;
-                    font-size: 18px;
-                }
-                .contenido h2{
-                    color: #fff;
-                    font-size: 32px;
-                }
-
-        </style>
 	</head>
 	<body  background="../images/cine.jpg" no-repeat center center fixed>	
     <!--MENU-->
@@ -84,19 +69,63 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                             </div>
                         </div>
                     </form>
-                         <button class="btn btn-default" style="margin-top:8px;" onclick="location.href='salir.php'">
-                         <span class="glyphicon glyphicon-off"></span></button>  
+
+                        <button class="btn btn-default" style="margin-top:8px;" onclick="location.href='salir.php'"><span class="glyphicon glyphicon-off"></span></button>  
                 </div>
                 </div>
             </div>
         </nav>
 
-        <div class="contenido"> 
-                 <h2> Parte Administración</h2>
+        <!--Formulario-->
+        <div class="container">
+        <div style="position:relative;top:30px;left:20px;">
+            <form method="post" role="form" action="../model/anadirPeli.php">
+            <!--Input-->
+                <div class="form-group">
+                    <label for="usr" style="color:#fff;text-align: left;">Titulo de la película</label>
+                    <div class="input-group"  style="width:330px;">
+                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Nombre" name="nombre">
+                    </div>
+                </div>
+                <br/>
+            <!--Input-->
+                <div class="form-group">
+                    <label for="usr" style="color:#fff">Descripción</label>
+                    <div class="input-group"  style="width:330px;">
+                        <textarea style="border-radius: 5px;" class="form-control" rows="3"  placeholder="Descripción" name="descripcion"></textarea>
+                    </div>
+                </div>
+                <br/>
+            <!--Input-->
+                <div class="form-group">
+                    <label for="usr" style="color:#fff">Duración</label>
+                    <div class="input-group"  style="width:330px;">
+                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Duración" name="duracion">
+                    </div>
+                </div>
+                <br/>
+            <!--Input-->
+                <div class="form-group">
+                    <label for="usr" style="color:#fff">Reparto</label>
+                    <div class="input-group"  style="width:330px;">
+                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Reparto" name="reparto">
+                    </div>
+                </div>
+                <br/>
+            <!--Input-->
+                <div class="form-group">
+                    <label for="usr" style="color:#fff">Calificación</label>
+                    <div class="input-group"  style="width:330px;">
+                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Calificación" name="calificacion">
+                    </div>
+                </div>
+                <br/>
 
-                <p>En esta sección podrás Añadir, Listar y Eliminar Películas y Usuarios.</p>
-
-        </div>   
+                <button name="anadir" type="submit" class="btn btn-primary" style="width:120px;background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-plus"></span> Añadir</button>
+                <br/>
+            </form>
+        </div>
+        </div>;
             
         <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->
         <script type="text/javascript" src="../css/dist/js/bootstrap.min.js"></script>

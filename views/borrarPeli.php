@@ -9,18 +9,36 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 }
 
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 
 	<!-- Cabecera de toda la página -->
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title> filmdate </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> filmdate </title>
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/borrarPeli.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
+        <style type="text/css">
 
+                .contenido{
+                    text-align: center;
+                    margin-top: 250px;
+                }
+                .contenido p{
+                    color: #fff;
+                    font-size: 18px;
+                }
+                .contenido h2{
+                    color: #fff;
+                    font-size: 32px;
+                }
+
+        </style>
 	</head>
 	<body  background="../images/cine.jpg" no-repeat center center fixed>	
     <!--MENU-->
@@ -33,28 +51,28 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#" class="navbar-brand">filmdate</a>
+                    <a href="admin.php" class="navbar-brand">filmdate</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="acolapsar">
                     <ul class="nav navbar-nav">
-                        <li><a href="admin.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                         <li class="dropdown">
                         <!--Seccion Desplegable-->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Usuarios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="anadir.php">Añadir</a></li>
-                                <li><a href="listar.php">Listar</a></li>
-                                <li><a href="borrar.php">Borrar</a></li>
+                                <li><a href="anadirUser.php">Añadir</a></li>
+                                <li><a href="listarUser.php">Listar</a></li>
+                                <li><a href="borrarUser.php">Borrar</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                         <!--Seccion Desplegable2-->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-film"></span> Peliculas <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="anadir.php">Añadir</a></li>
-                                <li><a href="listar.php">Listar</a></li>
-                                <li><a href="borrar.php">Borrar</a></li>
+                                <li><a href="anadirPeli.php">Añadir</a></li>
+                                <li><a href="listarPeli.php">Listar</a></li>
+                                <li><a href="borrarPeli.php">Borrar</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -69,11 +87,18 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                         </div>
                     </form>
                          <button class="btn btn-default" style="margin-top:8px;" onclick="location.href='salir.php'">
-                         <span class="glyphicon glyphicon-off"></span></button>  
+                         <span class="glyphicon glyphicon-off"></span></button>                     
                 </div>
                 </div>
             </div>
         </nav>
+
+        <!--PARA CUANDO CLICKE UNA FILA
+        <script type="text/javascript">
+            $('.table > tr').click(function() {
+                // row was clicked
+            });
+        </script>-->
 
         <div class="container" style="position:relative;top:50px;">
             <div class="panel panel-primary">
@@ -82,51 +107,51 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                     
                     <tr class="info">
                      <th>Título</th>
-                     <th>Descripción</th>
                      <th>Duración</th>
-                     <th>Reparto</th>
-                     <th>Calificación</th>
                     </tr>
+                <?php
+                    include_once("../funciones/peliculas.php");
+                    include_once("../config/database.php");
+                    // Establecemos la colección
+                    $collection=$bd->peliculas;
 
-                    <tr>
-                     <th>sdff</th>
-                     <th>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</th>
-                     <th>Duracsdfsdión</th>
-                     <th>sdfsd</th>
-                     <th>fsdfsd</th>
-                    </tr>
+                    $pelis=$collection->find(array());
 
-                    <tr>
-                     <th>fsdf</th>
-                     <th>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</th>
-                     <th>Durasfdsdción</th>
-                     <th>sdf</th>
-                     <th>fdsfsdfds</th>
-                    </tr>
+                    foreach ($pelis as $campo => $valor) {                  
 
-                    <tr>
-                     <th>Títufsdfsdflo</th>
-                     <th>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</th>
-                     <th>sdf</th>
-                     <th>sdf</th>
-                     <th>sdfsd</th>
-                    </tr>
+                    foreach ($valor as $movie => $dato) {
 
+                        $id;
+                        $titulo;
+                        $descripcion;
+
+                        if($movie=="_id"){
+
+                            $id=$dato;
+                            echo "<tr id=fila_" . $id .">";
+
+                        }
+
+                        if($movie=="title"){
+
+                            $titulo=$dato;
+                            echo "<td>" . $titulo . "</td>";
+
+                        }
+
+                        if($movie=="synopsis"){
+
+                            $descripcion=$dato;
+                            echo "<td><p align='justify'>" . $descripcion . "</p></td>";
+                        }
+                         
+                    }
+
+                    echo "<td>" ?><a id="eliminar" name="eliminar" onclick="eliminar('<?php echo htmlspecialchars($id); ?>')" class="btn btn-primary" style="background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-trash"></span></a> <?php "</td>";
+                    echo "</tr>";
+                }
+
+            ?>  
                 </table>
             </div>
         </div>
