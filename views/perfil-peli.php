@@ -178,10 +178,11 @@ $msg = new Messages();
 	</div> <!-- Cierre del id infopeli -->
 
 	<div id="div_abajo">
-        <center><span class="glyphicon-refresh-animate"><img src="../images/flecha-abajo.png"></span></center>
+        <a href="#miancla"><center><span class="glyphicon-refresh-animate"><img src="../images/flecha-abajo.png"></span></center></a>
     </div> <!-- Cierre del btn_abajo -->
 
     <!-- Parte de las críticas -->
+    <a name="miancla"></a>
 	<div id="contCriticas">
 
     	<div class="criticas">

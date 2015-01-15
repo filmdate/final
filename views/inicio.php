@@ -62,11 +62,11 @@
             <section id="cartelera">
                 <!-- Boton para ir hacia abajo -->
                 <div id="div_abajo">
-                    <center><span class="glyphicon-refresh-animate"><img src="../images/flecha-abajo.png"></span></center>
+                    <a href="#miancla"><center><span class="glyphicon-refresh-animate"><img src="../images/flecha-abajo.png"></span></center></a>
                  </div> <!-- Cierre del btn_abajo -->
 
 
-
+                 <a name="miancla"></a>
                 <h3> Cartelera </h3>
 
                 <?php
@@ -102,7 +102,8 @@
                             if($movie=="poster"){
 
                                 $poster=$dato;
-                                echo "<a href='views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+                                echo "<a href='views/perfil-peli.php?peli=$titulo'>    
+                                <span class='text'>Informacion: ". $titulo. "</span><img src=$poster></a>";
                                 echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";                      
 
                             }                            

@@ -20,6 +20,7 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
+        <script type="text/javascript" src="../js/mouseover.js"></script>
 
 	</head>
 	<body  background="../images/cine.jpg" no-repeat center center fixed>	

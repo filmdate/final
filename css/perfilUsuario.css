@@ -32,7 +32,7 @@ body.droppable .profile-avatar-wrap {
 }
 
 .profile {
-  width: 50%;
+  width: 53%;
 
 }
 
@@ -60,7 +60,7 @@ body.droppable .profile-avatar-wrap {
 }
 .profile-avatar-wrap img {
 
-  width: 100%;
+  width: 80%;
   display: block;
   float: left;
 
@@ -98,8 +98,7 @@ body.droppable .profile-avatar-wrap {
   
 }
 
-#perfilTitulo {
-
+#perfilTitulo {;
   margin: 0 0 30px 0;
   border-bottom: 2px solid #66cccc;
 }
@@ -119,7 +118,9 @@ body.droppable .profile-avatar-wrap {
 /*TABLET:Cuando la anchura de la ventana contenga como máximo 700px se cambia el diseño */
 @media all and (max-width: 768px){
 
-
+  #cont{
+    left: 10%;
+  }
   .page-wrap {
 
     margin: 33px auto;
@@ -130,9 +131,9 @@ body.droppable .profile-avatar-wrap {
 
     margin: 20px;
     font-size: 16px;
-    border-bottom: 1px solid #66cccc;
-    min-width: 80px;
-    width: 27%;
+    border-bottom: 1.5px solid #66cccc;
+    min-width: 60px;
+    width: 26%;
     display: -webkit-box; /* Chrome*/
     -webkit-flex: 1; /* Safari 6.1+ */
 
@@ -140,7 +141,7 @@ body.droppable .profile-avatar-wrap {
 
   #arrastrar {
   
-    margin: 0px 0 0 50px;
+    margin: 0px 0 0 16px;
     font-size: 12px;    
 
   }
@@ -152,13 +153,13 @@ body.droppable .profile-avatar-wrap {
 
   input[type="file"]{
 
-    margin: 0 0 0 50px;
+    margin: 0 0 0 18px;
 
   }
 
   .profile-avatar-wrap img {
 
-    margin: 0 0 0 50px;
+    margin: 0 0 0 16px;
     width: 50%;
     display: block;
 
