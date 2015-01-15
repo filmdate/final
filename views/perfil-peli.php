@@ -191,50 +191,9 @@ $msg = new Messages();
                 <h2>Criticas</h2></br></br>
                 <!-- Listado de los comentarios de la película obtenida de la BD -->
                 <?php
-
-                    include_once("../config/database.php");
-                    $collection=$bd->criticas;
-                    $comenta = $collection->find(array('id_pelicula' => $_SESSION['id_pelicula']));
-                    $id_usuario;
-                    $critica;
-                    $username;
-
-                    foreach ($comenta as $campo => $valor) {
-
-                        foreach ($valor as $coment => $datos) {
-
-                            if($coment=="id_usuario"){
-                            
-                                $id_usuario=$datos; 
-
-                                $collection=$bd->usuarios;
-                                $usuarios = $collection->findOne(array('_id' => new MongoId($id_usuario)));
-
-                                foreach ($usuarios as $campo => $valor) {
-
-                                    if($campo=="usuario"){
-                                    
-                                        echo "<b>".$valor."</b><br/>";
-
-                                    }             
-                                    
-                                } 
-
-                            } 
-
-                            if($coment=="comentario"){
-                            
-                                echo $datos."<br/><br/><br/>";
-
-                            }
-                        }          
-                        
-                    }
-
-                    //------------------------------------------------------------------------
-                    // Muestra el mensaje flash
-                    //------------------------------------------------------------------------
-                    echo $msg->display();
+                    //$id_pelicula = $_SESSION['id_pelicula'];
+                    include_once("../includes/criticas.php");
+                    
                 ?>
             </div>
 
@@ -245,16 +204,19 @@ $msg = new Messages();
 
                     // No se muestra el textarea para comentar ni el botón
                 }
-                else{ ?>
+                else{ 
+                    $id_usuario=$_SESSION['id_usuario'];
+                    ?>
 
                     <!--Input para comentar la película -->
-                    <form class="formulario" role="form" method="post" action="../model/criticas.php">
+                    <form class="formulario" role="form" method="post">
                         <div class="form-group">
                             <div class="input-group"  style="width:330px;">
-                                <textarea style="border-radius: 5px;width: 780px;" class="form-control" rows="2" name="criti" placeholder="Crítica"></textarea>
+                                <textarea style="border-radius: 5px;width: 780px;" class="form-control" rows="2" name="<?php echo htmlspecialchars($_SESSION['id_usuario']); ?>"
+                                 id="critica" placeholder="Crítica" required></textarea>
                             </div>
                         </div>
-                        <button type="submit" name="enviarCritica" class="btn btn-primary" style="background:#66cccc;border:none;">
+                        <button type="submit" id="enviarCritica" class="btn btn-primary" style="background:#66cccc;border:none;" name="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>">
                             <span class="glyphicon glyphicon-comment"></span> Comenta</button>
                     </form>
 

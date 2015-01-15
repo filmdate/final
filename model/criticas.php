@@ -19,29 +19,32 @@ include_once("../config/database.php");
 include_once("../funciones/usuarios.php");
 include_once("../funciones/peliculas.php");
 
+$id_usuario=$_POST['id_usuario'];
+$id_pelicula=$_POST['id_pelicula'];
+$comentario=$_POST['comentario'];
+
+// Establecemos la colección
+$collection=$bd->peliculas;
+
+$datos=obtenerDatosPelicula($id_pelicula);
+
+$titulo;
+
+foreach ($datos as $campo => $valor) {
+
+	if($campo=="title"){
+
+		$titulo=$valor;
+
+	}
+}
 
 // Se comprueba si el comentario está definido
-if(isset($_POST['enviarCritica'])){
+//if(isset($_POST['enviarCritica'])){
 	// Si el textarea de criticas está vacio
-	if(isset($_POST['criti']) and $_POST['criti']==NULL){
+	if(isset($comentario) and $comentario==NULL){
 
-		// Establecemos la colección
-        $collection=$bd->peliculas;
-
-		$datos=obtenerDatosPelicula($_SESSION['id_pelicula']);
-
-		$titulo;
-
-		foreach ($datos as $campo => $valor) {
-
-			if($campo=="title"){
-
-				$titulo=$valor;
-
-			}
-		}
-
-		// Mensaje de error a mostrar
+				// Mensaje de error a mostrar
 		$msg->add('e', 'ERROR: No has introducido el comentario');
 
 		// Redirecciona al perfil de la película
@@ -55,41 +58,28 @@ if(isset($_POST['enviarCritica'])){
 
 		try {
 
-			$idUsu=$_SESSION['id_usuario'];
-
 			// Se crea un array para obtener los datos del formulario para guarda como un documento
 			$document = array( 
 
-				"id_usuario" => $idUsu, 
-				"id_pelicula" => $_SESSION['id_pelicula'],
-				"comentario" => $_POST['criti']
+				"id_usuario" => $id_usuario, 
+				"id_pelicula" => $id_pelicula,
+				"comentario" => $comentario
 
 	    	);
 
 			// Se inserta el documento en la colección llamado criticas
-			$collection=$bd->criticas;
-			$collection->insert($document);
+			$collection2=$bd->criticas;
+			$collection2->insert($document);
 
-			// Se establece la colección llamado películas
-			$collection=$bd->peliculas;
+			// Se realiza una consulta con el id_pelicula
+			$criti=$collection2->find(array('id_pelicula' => $pelicula_id));
 
-			$datosPelicula=obtenerDatosPelicula($_SESSION['id_pelicula']);
+			// Devuelve el objeto JSON
+			echo json_encode(iterator_to_array($criti));
 
-			foreach ($datosPelicula as $campo => $valor) {
-
-                $nombrePeli;
-
-                if($campo=="title"){
-
-                    $nombrePeli=$valor;
-                    echo $nombrePeli;
-
-                }               
-
-            }
-
+			
 			// Redirecciona al perfil de la película
-			header("location: ../views/perfil-peli.php?peli=$nombrePeli");
+			//header("location: ../views/perfil-peli.php?peli=$titulo");
 
 		}
 		catch (MongoCursorException $e) {
@@ -98,7 +88,7 @@ if(isset($_POST['enviarCritica'])){
 			$msg->add('e', 'ERROR: Al insertar datos!');
 
 			// Redirecciona al perfil de la película
-			header('Location: ../views/perfil-peli.php?peli=$nombrePeli');
+			header('Location: ../views/perfil-peli.php?peli=$titulo');
 
 			// Imprime un mensaje y termina el script actual
 			exit();
@@ -107,6 +97,6 @@ if(isset($_POST['enviarCritica'])){
 
 	}
 
-} // Cierre del if --> variable registro
+//} // Cierre del if --> variable registro
 
 ?>

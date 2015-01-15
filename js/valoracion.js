@@ -34,4 +34,44 @@ $(document).ready(function() {
 
 	});
 
+	$("#enviarCritica").click(function() {
+
+
+		// Se obtienen los atributos de la estrella que hizo clic
+	    var comentario=this;
+	    var usu=document.getElementById("critica").name;
+
+		// creamos el objeto JSON para enviar a la página PHP
+	   	var datosClick = {
+	        pelicula_id : $(comentario).attr("name"), // le pasamos la id de la pelicula
+	        usuario_id : usu, // le pasamos la id de usuario
+	        contenido : document.getElementById("critica").value // le pasamos la critica realizada por el usuario
+
+	    };
+	    alert(datosClick);
+	    console.log(datosClick);
+
+	    // Se envía el valor al archivo php
+	    $.ajax({
+
+	    	type: "POST", //método post
+		  	url: "../model/criticas.php", // archivo que va a recibir nuestro pedido
+		  	dataType: "json", // indicamos que el formato utilizado es JSON
+		  	data: datosClick, // el objeto JSON con los datos 
+
+		  	// función que se ejecutará cuando obtengamos la respuesta
+		  	success:function(data){
+
+		  		var id = $(comentario).attr("value");
+		  		$('#coment').load('../includes/criticas.php?id='+id);
+
+
+          	}
+
+        });
+
+
+	});
+
+
 });
