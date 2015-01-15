@@ -43,16 +43,12 @@ $(document).ready(function() {
 
 		// creamos el objeto JSON para enviar a la página PHP
 	   	var datosClick = {
+
 	        pelicula_id : $(comentario).attr("name"), // le pasamos la id de la pelicula
 	        usuario_id : usu, // le pasamos la id de usuario
 	        contenido : document.getElementById("critica").value // le pasamos la critica realizada por el usuario
 
-	    };
-	    
-	    /*salert(datosClick.pelicula_id);
-	    alert(datosClick.usuario_id);
-	    alert(datosClick.contenido);*/
-	    
+	    };	    
 
 	    // Se envía el valor al archivo php
 	    $.ajax({
@@ -65,7 +61,8 @@ $(document).ready(function() {
 		  	// función que se ejecutará cuando obtengamos la respuesta
 		  	success:function(data){
 
-		  		var id = $(comentario).attr("value");
+		  		var id = $("#enviarCritica").attr("name");
+		  		console.log(id);
 		  		$('#coment').load('../includes/criticas.php?id='+id);
 
 

@@ -19,15 +19,13 @@ include_once("../config/database.php");
 include_once("../funciones/usuarios.php");
 include_once("../funciones/peliculas.php");
 
-$id_usuario=$_POST['id_usuario'];
-$id_pelicula=$_POST['id_pelicula'];
-$comentario=$_POST['comentario'];
+// Se obtienen los datos mediante ajax
+$id_usuario=$_POST['usuario_id'];
+$id_pelicula=$_POST['pelicula_id'];
+$comentario=$_POST['contenido'];
 
 // Establecemos la colección
 $collection=$bd->peliculas;
-
-
-
 
 $datos=obtenerDatosPelicula($id_pelicula);
 
@@ -42,64 +40,56 @@ foreach ($datos as $campo => $valor) {
 	}
 }
 
-// Se comprueba si el comentario está definido
-//if(isset($_POST['enviarCritica'])){
-	// Si el textarea de criticas está vacio
-	if(isset($comentario) and $comentario==NULL){
+// Si el textarea de criticas está vacio
+if(isset($_POST['contenido']) or $_POST['contenido']==NULL){
 
-				// Mensaje de error a mostrar
-		$msg->add('e', 'ERROR: No has introducido el comentario');
+			// Mensaje de error a mostrar
+	$msg->add('e', 'ERROR: No has introducido el comentario');
+
+	// Redirecciona al perfil de la película
+	header('Location: ../views/perfil-peli.php?peli=' . $titulo);
+
+	// Imprime un mensaje y termina el script actual
+	exit();
+	
+}
+else{ // Si el textarea no está vacío
+
+	try {
+
+		// Se crea un array para obtener los datos del formulario para guarda como un documento
+		$document = array( 
+
+			"id_usuario" => $id_usuario, 
+			"id_pelicula" => $id_pelicula,
+			"comentario" => $comentario
+
+    	);
+
+		// Se inserta el documento en la colección llamado criticas
+		$collection=$bd->criticas;
+		$collection->insert($document);
+
+		// Se realiza una consulta para obtener todas las críticas con el id_pelicula
+		$criti=$collection->find(array('id_pelicula' => $id_pelicula));
+
+		// Devuelve el objeto JSON
+		echo json_encode(iterator_to_array($criti));
+
+	}
+	catch (MongoCursorException $e) {
+
+		// Mensaje de error a mostrar
+		$msg->add('e', 'ERROR: Al insertar datos!');
 
 		// Redirecciona al perfil de la película
-		header('Location: ../views/perfil-peli.php?peli=' . $titulo);
+		header('Location: ../views/perfil-peli.php?peli=$titulo');
 
 		// Imprime un mensaje y termina el script actual
 		exit();
-		
-	}
-	else{ // Si el textarea no está vacío
 
-		try {
+	}// Cierre de la excepción
 
-			// Se crea un array para obtener los datos del formulario para guarda como un documento
-			$document = array( 
-
-				"id_usuario" => $id_usuario, 
-				"id_pelicula" => $id_pelicula,
-				"comentario" => $comentario
-
-	    	);
-
-			// Se inserta el documento en la colección llamado criticas
-			$collection=$bd->criticas;
-			$collection->insert($document);
-
-			// Se realiza una consulta con el id_pelicula
-			$criti=$collection->find(array('id_pelicula' => $id_pelicula));
-
-			// Devuelve el objeto JSON
-			echo json_encode(iterator_to_array($criti));
-
-			
-			// Redirecciona al perfil de la película
-			//header("location: ../views/perfil-peli.php?peli=$titulo");
-
-		}
-		catch (MongoCursorException $e) {
-
-			// Mensaje de error a mostrar
-			$msg->add('e', 'ERROR: Al insertar datos!');
-
-			// Redirecciona al perfil de la película
-			header('Location: ../views/perfil-peli.php?peli=$titulo');
-
-			// Imprime un mensaje y termina el script actual
-			exit();
-
-		}// Cierre de la excepción
-
-	}
-
-//} // Cierre del if --> variable registro
+}
 
 ?>

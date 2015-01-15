@@ -1,63 +1,50 @@
 <?php
 
-                    include_once("../config/database.php");
+    $id_pelicula;
 
-                    //------------------------------------------------------------------------------
-// A session is required for the messages to work
-//------------------------------------------------------------------------------
-if( !session_id() ) session_start();
+    if(isset($_GET['id_pelicula'])){
+        $id_pelicula=$_GET['id_pelicula'];           
+    }
+    $collection=$bd->criticas;
+    $comenta = $collection->find(array('id_pelicula' => "$id_pelicula"));
+    $id_usuario;
+    $critica;
+    $username;
 
-//------------------------------------------------------------------------------
-// Include the Messages class and instantiate it
-//------------------------------------------------------------------------------
-require_once('../controller/class.messages.php');
-$msg = new Messages();
+    foreach ($comenta as $campo => $valor) {
 
-                    $id_pelicula;
+        foreach ($valor as $coment => $datos) {
 
-                    if(isset($_GET['id_pelicula'])){
-                        $id_pelicula=$_GET['id_pelicula'];           
-                    }
-                    $collection=$bd->criticas;
-                    $comenta = $collection->find(array('id_pelicula' => $id_pelicula));
-                    $id_usuario;
-                    $critica;
-                    $username;
+            if($coment=="id_usuario"){
+            
+                $id_usuario=$datos; 
 
-                    foreach ($comenta as $campo => $valor) {
+                $collection=$bd->usuarios;
+                $usuarios = $collection->findOne(array('_id' => new MongoId($id_usuario)));
 
-                        foreach ($valor as $coment => $datos) {
+                foreach ($usuarios as $campo => $valor) {
 
-                            if($coment=="id_usuario"){
-                            
-                                $id_usuario=$datos; 
+                    if($campo=="usuario"){
+                    
+                        echo "<b>".$valor."</b><br/>";
 
-                                $collection=$bd->usuarios;
-                                $usuarios = $collection->findOne(array('_id' => new MongoId($id_usuario)));
+                    }             
+                    
+                } 
 
-                                foreach ($usuarios as $campo => $valor) {
+            } 
 
-                                    if($campo=="usuario"){
-                                    
-                                        echo "<b>".$valor."</b><br/>";
+            if($coment=="comentario"){
+            
+                echo $datos."<br/><br/><br/>";
 
-                                    }             
-                                    
-                                } 
+            }
+        }          
+        
+    }
 
-                            } 
-
-                            if($coment=="comentario"){
-                            
-                                echo $datos."<br/><br/><br/>";
-
-                            }
-                        }          
-                        
-                    }
-
-                    //------------------------------------------------------------------------
-                    // Muestra el mensaje flash
-                    //------------------------------------------------------------------------
-                    echo $msg->display();
-                ?>
+    //------------------------------------------------------------------------
+    // Muestra el mensaje flash
+    //------------------------------------------------------------------------
+    echo $msg->display();
+?>
