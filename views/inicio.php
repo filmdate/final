@@ -131,7 +131,7 @@
                 ?>     
 
                 <div class="vermas" onclick="location.href='views/cartelera.php'">
-                    <span class="glyphicon glyphicon-plus"</span>
+                    <span><img src="../images/plus_azul.png"></span>
                 </div>       
 
             </section> <!--Cierre de la Cartelera -->
@@ -202,7 +202,7 @@
 
                 ?>
                 <div class="vermas" onclick="location.href='views/proximamente.php'">
-                    <span><img src="../images/PLUS_AZUL.png"></span>
+                    <span><img src="../images/plus_azul.png"></span>
                 </div>
 
 

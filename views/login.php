@@ -126,7 +126,7 @@ include_once("../config/database.php");
                 ?>     
 
                 <div class="vermas" onclick="location.href='cartelera.php'">
-                    <span class="glyphicon glyphicon-plus"</span>
+                    <span><img src="../images/plus_azul.png"></span>
                 </div>       
 
             </section> <!--Cierre de la Cartelera -->
@@ -196,7 +196,7 @@ include_once("../config/database.php");
 
                 ?>
                 <div class="vermas" onclick="location.href='proximamente.php'">
-                    <span class="glyphicon glyphicon-plus"</span>
+                    <span><img src="../images/plus_azul.png"></span>
                 </div>
 
 

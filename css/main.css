@@ -254,7 +254,7 @@ header, section, footer, nav {
     transition: all 0.5s ease;
 }
 .text:hover {
-    opacity:1;
+    opacity:0.8;
 }
 
 

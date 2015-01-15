@@ -33,12 +33,12 @@ h4 a{
 
 /* Footer */
 footer{
+	background-color: #f2efef;
 	width: 100%;
 	position: absolute;
-	top: 160%;
+	top: 196%;
 	height: 66px;
 	padding: 3px;
-
 }
 
 footer a{
