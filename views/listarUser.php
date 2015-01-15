@@ -9,36 +9,18 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 }
 
 ?>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 
 	<!-- Cabecera de toda la página -->
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title> filmdate </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title> filmdate </title>
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-        <script type="text/javascript" src="../js/borrarPeli.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
-        <style type="text/css">
 
-                .contenido{
-                    text-align: center;
-                    margin-top: 250px;
-                }
-                .contenido p{
-                    color: #fff;
-                    font-size: 18px;
-                }
-                .contenido h2{
-                    color: #fff;
-                    font-size: 32px;
-                }
-
-        </style>
 	</head>
 	<body  background="../images/cine.jpg" no-repeat center center fixed>	
     <!--MENU-->
@@ -51,12 +33,12 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="admin.php" class="navbar-brand">filmdate</a>
+                    <a href="#" class="navbar-brand">filmdate</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="acolapsar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                        <li><a href="admin.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                         <li class="dropdown">
                         <!--Seccion Desplegable-->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Usuarios <b class="caret"></b></a>
@@ -87,7 +69,7 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                         </div>
                     </form>
                          <button class="btn btn-default" style="margin-top:8px;" onclick="location.href='salir.php'">
-                         <span class="glyphicon glyphicon-off"></span></button>                     
+                         <span class="glyphicon glyphicon-off"></span></button>  
                 </div>
                 </div>
             </div>
@@ -99,52 +81,50 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                 <table class="table table-striped table-hover table-bordered">
                     
                     <tr class="info">
-                     <th>Título</th>
-                     <th>Duración</th>
+                     <th>Email</th>
+                     <th>Usuario</th>
+                     <th>Password</th>
                     </tr>
                 <?php
                     include_once("../funciones/peliculas.php");
                     include_once("../config/database.php");
                     // Establecemos la colección
-                    $collection=$bd->peliculas;
+                    $collection=$bd->usuarios;
 
-                    $pelis=$collection->find(array());
+                    $users=$collection->find(array());
 
-                    foreach ($pelis as $campo => $valor) {                  
+                    foreach ($users as $campo => $valor) {                  
+                        echo "<tr>";
+                        foreach ($valor as $user => $dato) {
 
-                    foreach ($valor as $movie => $dato) {
+                            $usuario;
+                            $email;
+                            $password;
 
-                        $id;
-                        $titulo;
-                        $descripcion;
+                            if($user=="email"){
 
-                        if($movie=="_id"){
+                                $email=$dato;
+                                echo "<td>" . $email . "</td>";
+                            }
 
-                            $id=$dato;
-                            echo "<tr id=fila_" . $id .">";
+                            if($user=="usuario"){
 
-                        }
+                                $usuario=$dato;
+                                echo "<td>" . $usuario . "</td>";
 
-                        if($movie=="title"){
+                            }
+                            if($user=="password"){
 
-                            $titulo=$dato;
-                            echo "<td>" . $titulo . "</td>";
+                                $password=$dato;
+                                echo "<td>" . $password . "</td>";
 
-                        }
-
-                        if($movie=="synopsis"){
-
-                            $descripcion=$dato;
-                            echo "<td><p align='justify'>" . $descripcion . "</p></td>";
-                        }
+                            }
                          
+                        }
+                        echo "</tr>";
                     }
 
-                    echo "<td>" ?><a id="eliminar" name="eliminar" onclick="eliminar('<?php echo htmlspecialchars($id); ?>')" class="btn btn-primary" style="background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-trash"></span></a> <?php "</td>";
-                    echo "</tr>";
-                }
-
-            ?>  
+                ?>  
                 </table>
             </div>
         </div>

@@ -1,4 +1,14 @@
 <?php
+//------------------------------------------------------------------------------
+// Los mensajes flash requieren las sesiones 
+//------------------------------------------------------------------------------
+if( !session_id() ) session_start();
+
+//------------------------------------------------------------------------------
+// Se incluye la clase y se instancia
+//------------------------------------------------------------------------------
+require_once('../controller/class.messages.php');
+$msg = new Messages();
 
 // Se importa database.php para realizar consultas a la base de datos
 include_once("../config/database.php");
@@ -12,7 +22,7 @@ if(isset($_POST['anadir'])){
 	if($_POST['nombre']==NULL or $_POST['descripcion']==NULL or $_POST['duracion']==NULL or $_POST['reparto']==NULL or $_POST['calificacion']==NULL){
 
 		// Se muestra un mensaje por pantalla
-		echo "Los campos estan vac&iacute;os";
+		$msg->add('e', 'ERROR: Los campos estan vac&iacute;os');
 		exit;
 	}
 	else{ // Si los campos no están vacíos
@@ -24,7 +34,7 @@ if(isset($_POST['anadir'])){
 		if(peliculaExiste($_POST['nombre'])==true){
 
 			// Se muestra un mensaje por pantalla
-			echo "La pel&iacute;cula ya esta dada de alta";
+			$msg->add('e', 'ERROR: El pel&iacute; ya existe');
 			exit;
 		}
 		else{ 			
@@ -44,6 +54,8 @@ if(isset($_POST['anadir'])){
 
 				// Se inserta el documento en la colección
 				$collection->insert($document);
+
+				$msg->add('s', '¡FABULOSO! Pel&iacute;cula añadida');
 
 				// Redirecciona al perfil del usuario
 				header("location: ../views/anadirPeli.php");

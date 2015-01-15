@@ -8,6 +8,9 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
     header('Location: ../index.php');
 }
 
+require_once('../controller/class.messages.php');
+$msg = new Messages();
+
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -21,6 +24,8 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
+        <!-- Mensajes flash -->
+        <link rel="stylesheet" type="text/css" href="../css/mensajes.css">
 
 	</head>
 	<body  background="../images/cine.jpg" no-repeat center center fixed>	
@@ -78,13 +83,22 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 
         <!--Formulario-->
         <div class="container">
+
+            <?php 
+        
+                //------------------------------------------------------------------------
+                // Mostrar el mensaje flash
+                //------------------------------------------------------------------------
+                echo $msg->display();
+
+            ?>
         <div style="position:relative;top:30px;left:20px;">
-            <form method="post" role="form" action="../model/registro.php">
+            <form method="post" role="form" action="../model/registroAdmin.php">
             <!--Input-->
                 <div class="form-group">
                     <label for="usr" style="color:#fff;text-align: left;">Email</label>
                     <div class="input-group"  style="width:330px;">
-                        <input  style="border-radius: 5px;" type="email" class="form-control"  placeholder="Email" name="email">
+                        <input  style="border-radius: 5px;" type="email" class="form-control"  placeholder="Email" name="email" required>
                     </div>
                 </div>
                 <br/>
@@ -92,7 +106,7 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                 <div class="form-group">
                     <label for="usr" style="color:#fff">Nombre de usuario</label>
                     <div class="input-group"  style="width:330px;">
-                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Usuairo" name="username">
+                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Usuairo" name="username" maxlength="8" required>
                     </div>
                 </div>
                 <br/>
@@ -100,7 +114,7 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                 <div class="form-group">
                     <label for="usr" style="color:#fff">Contraseña</label>
                     <div class="input-group"  style="width:330px;">
-                        <input  style="border-radius: 5px;" type="password" class="form-control" id="usr" placeholder="Contraseña" name="password">
+                        <input  style="border-radius: 5px;" type="password" class="form-control" id="usr" placeholder="Contraseña" name="password" required>
                     </div>
                 </div>
                 <br/>
@@ -108,11 +122,11 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                 <div class="form-group">
                     <label for="usr" style="color:#fff">Repite la contraseña</label>
                     <div class="input-group"  style="width:330px;">
-                        <input  style="border-radius: 5px;" type="text" class="form-control" id="usr" placeholder="Repite la contraseña" name="password2">
+                        <input  style="border-radius: 5px;" type="password" class="form-control" id="usr" placeholder="Repite la contraseña" name="password2" required>
                     </div>
                 </div>
                 <br/>
-                <button name="anadir" type="submit" class="btn btn-primary" style="width:120px;background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-plus"></span> Añadir</button>
+                <button name="registro" type="submit" class="btn btn-primary" style="width:120px;background-color:#00B8E6;border:none;outline: none;"><span class="glyphicon glyphicon-plus"></span> Añadir</button>
                 <br/>
             </form>
         </div>

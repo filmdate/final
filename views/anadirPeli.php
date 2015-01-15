@@ -6,8 +6,11 @@
 if( !session_id() ) session_start();
 if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
     header('Location: ../index.php');
+    
 }
 
+require_once('../controller/class.messages.php');
+$msg = new Messages();
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -21,6 +24,8 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
+        <!-- Mensajes flash -->
+        <link rel="stylesheet" type="text/css" href="../css/mensajes.css">
 
 	</head>
 	<body  background="../images/cine.jpg" no-repeat center center fixed>	
@@ -78,6 +83,14 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
 
         <!--Formulario-->
         <div class="container">
+            <?php 
+        
+                //------------------------------------------------------------------------
+                // Mostrar el mensaje flash
+                //------------------------------------------------------------------------
+                echo $msg->display();
+
+            ?>
         <div style="position:relative;top:30px;left:20px;">
             <form method="post" role="form" action="../model/anadirPeli.php">
             <!--Input-->

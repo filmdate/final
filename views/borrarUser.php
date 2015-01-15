@@ -21,7 +21,7 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
         <!--para el favicon-->
         <link rel="icon" type="image/png" href="../images/favicon.png" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-        <script type="text/javascript" src="../js/borrarPeli.js"></script>
+        <script type="text/javascript" src="../js/borrarUser.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
         <style type="text/css">
 
@@ -99,43 +99,52 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                 <table class="table table-striped table-hover table-bordered">
                     
                     <tr class="info">
-                     <th>Título</th>
-                     <th>Duración</th>
+                     <th>Email</th>
+                     <th>Usuario</th>
+                     <th>Contraseña</th>
+                     <th></th>
                     </tr>
                 <?php
                     include_once("../funciones/peliculas.php");
                     include_once("../config/database.php");
                     // Establecemos la colección
-                    $collection=$bd->peliculas;
+                    $collection=$bd->usuarios;
 
-                    $pelis=$collection->find(array());
+                    $users=$collection->find(array());
 
-                    foreach ($pelis as $campo => $valor) {                  
+                    foreach ($users as $campo => $valor) {                  
 
-                    foreach ($valor as $movie => $dato) {
+                    foreach ($valor as $user => $dato) {
 
                         $id;
-                        $titulo;
-                        $descripcion;
+                        $email;
+                        $usuario;
+                        $password;
 
-                        if($movie=="_id"){
+                        if($user=="_id"){
 
                             $id=$dato;
                             echo "<tr id=fila_" . $id .">";
 
                         }
 
-                        if($movie=="title"){
+                        if($user=="email"){
 
-                            $titulo=$dato;
-                            echo "<td>" . $titulo . "</td>";
+                            $email=$dato;
+                            echo "<td>" . $email . "</td>";
 
                         }
+                        if($user=="usuario"){
 
-                        if($movie=="synopsis"){
+                            $usuario=$dato;
+                            echo "<td>" . $usuario . "</td>";
 
-                            $descripcion=$dato;
-                            echo "<td><p align='justify'>" . $descripcion . "</p></td>";
+                        }
+                        if($user=="password"){
+
+                            $password=$dato;
+                            echo "<td>" . $password . "</td>";
+
                         }
                          
                     }
