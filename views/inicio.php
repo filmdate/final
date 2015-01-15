@@ -202,7 +202,7 @@
 
                 ?>
                 <div class="vermas" onclick="location.href='views/proximamente.php'">
-                    <span class="glyphicon glyphicon-plus"</span>
+                    <span><img src="../images/PLUS_AZUL.png"></span>
                 </div>
 
 
