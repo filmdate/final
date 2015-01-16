@@ -93,7 +93,7 @@ function obtenerDatosUsuario($id_usuario){
 
 
 /*
-* usuarioExiste. Para comprobar si un usuario existe en la bd.
+* usuarioExiste. Para comprobar si un usuario existe con un email en la bd.
 * parans --> $email. Se obtiene del formulario.
 * return --> Si el usuario existe retorna true, sino false.
 */
@@ -107,6 +107,36 @@ function usuarioExiste($email){
 
 	// Se realiza una consulta para obtener los dato de un usuario 
 	$users=$collection->findOne(array('email' => $email));
+	
+	// Si el array es igual a NULL
+	if($users==NULL){
+
+		// Se establece la variable local con el valor false
+		$existe=false;
+
+	}
+
+	// Devuelve el valor de la variable local
+	return $existe;	
+
+} // Cierre de la función usuarioExiste
+
+
+/*
+* usernameExiste. Para comprobar si un usuario existe con un nombre de usuario en la bd.
+* parans --> $email. Se obtiene del formulario.
+* return --> Si el usuario existe retorna true, sino false.
+*/
+function usernameExiste($usuario){
+
+	// Variable global
+	global $collection;
+
+	// Variable local 
+	$existe=true; // Se establece el valor true
+
+	// Se realiza una consulta para obtener los dato de un usuario 
+	$users=$collection->findOne(array('usuario' => $usuario));
 	
 	// Si el array es igual a NULL
 	if($users==NULL){
@@ -227,5 +257,6 @@ function verificarPassword($usuario,$password){
 	return $correcto;
 
 } // Cierre de la función comprobarPassword
+
 
 ?>
