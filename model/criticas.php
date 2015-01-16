@@ -83,7 +83,7 @@ else{ // Si el textarea no está vacío
 		$msg->add('e', 'ERROR: Al insertar datos!');
 
 		// Redirecciona al perfil de la película
-		header('Location: ../views/perfil-peli.php?peli=$titulo');
+		//header('Location: ../views/perfil-peli.php?peli=$titulo');
 
 		// Imprime un mensaje y termina el script actual
 		exit();

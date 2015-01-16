@@ -61,11 +61,15 @@ $(document).ready(function() {
 		  	// función que se ejecutará cuando obtengamos la respuesta
 		  	success:function(data){
 
-		  		var id = $("#enviarCritica").attr("name");
+		  		var id = $(comentario).attr("name");
 		  		console.log(id);
 		  		$('#coment').load('../includes/criticas.php?id='+id);
 
 
+          	},
+          	error: function(data){
+
+          		alert("algo falla");
           	}
 
         });
