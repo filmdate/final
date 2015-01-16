@@ -144,14 +144,14 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                                         <label for="exampleInputEmail1">Nuevo nombre</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                            <input type="text" name="nombre" class="form-control" placeholder="Nuevo nombre">
+                                            <input type="text" name="nombre" class="form-control" placeholder="Nuevo nombre" maxlength="8" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Contraseña</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                            <input type="password" name="password" class="form-control" placeholder="Contraseña para verificar">
+                                            <input type="password" name="password" class="form-control" placeholder="Contraseña para verificar" required>
                                         </div>
                                     </div>
                                     <br/>
@@ -189,14 +189,14 @@ if(!(isset($_SESSION['id_usuario']) && $_SESSION['id_usuario']!='')){
                                         <label for="exampleInputEmail1">Nuevo email</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                            <input type="email" name="email" class="form-control" placeholder="Nuevo email">
+                                            <input type="email" name="email" class="form-control" placeholder="Nuevo email" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Contraseña</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                            <input type="password" name="password" class="form-control" placeholder="Contraseña para verificar">
+                                            <input type="password" name="password" class="form-control" plac eholder="Contraseña para verificar" required>
                                         </div>
                                     </div>
                                     <br/>
