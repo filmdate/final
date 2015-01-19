@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
 	$(".estrellasValoracion").click(function() {
-		event.preventDefault();
 		// Se obtienen los atributos de la estrella que hizo clic
 	    var estrella=this;
 
@@ -34,7 +33,7 @@ $(document).ready(function() {
 	});
 
 	$("#enviarCritica").click(function() {
-		event.preventDefault();
+		event.preventDefault();//Cancela el evento si este es cancelable, sin detener el resto del funcionamiento del evento
 
 		// Se obtienen los atributos de la estrella que hizo clic
 	    var comentario=this;
