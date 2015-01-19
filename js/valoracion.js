@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
 	$(".estrellasValoracion").click(function() {
-
-
+		event.preventDefault();
 		// Se obtienen los atributos de la estrella que hizo clic
 	    var estrella=this;
 
@@ -35,7 +34,7 @@ $(document).ready(function() {
 	});
 
 	$("#enviarCritica").click(function() {
-
+		event.preventDefault();
 
 		// Se obtienen los atributos de la estrella que hizo clic
 	    var comentario=this;
@@ -62,8 +61,8 @@ $(document).ready(function() {
 		  	success:function(data){
 
 		  		var id = $("#enviarCritica").attr("name");
-		  		console.log(id);
-		  		$('#coment').load('../includes/criticas.php?id='+id);
+
+		  		$('#coment').load('../includes/criticas.php?id_pelicula='+id);
 
 
           	}

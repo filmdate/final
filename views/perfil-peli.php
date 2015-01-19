@@ -56,6 +56,8 @@ $msg = new Messages();
     <script type="text/javascript" src="../js/menu.js"></script> 
 </head>
 <body>
+
+    <div id="contene">
     
     <!-- Encabezado de toda la página -->
     <?php include("../includes/header.html"); ?>
@@ -231,14 +233,16 @@ $msg = new Messages();
 
             ?>
 
-		</div>
-	</div> <!-- Cierre del div de críticas -->
+		</div><!-- Cierre del div de críticas -->
+	</div> <!-- Cierre del div de contCríticas -->
+
 
     <!-- Pie de toda la página -->
     <?php 
         echo "<link href=\"../css/perfil-peli.css\" rel=\"stylesheet\" type=\"text/css\" >";
         include("../includes/footer.html"); 
     ?>
+    </div>
 
     <!-- Para las ventanas modales -->
     <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script> <!-- jQuery -->
