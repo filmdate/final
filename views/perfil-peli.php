@@ -26,7 +26,7 @@ $msg = new Messages();
 	<link rel="stylesheet" type="text/css" href="../css/perfil-peli.css"/>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/perfil-peli.js"></script>
-   <!-- <script type="text/javascript" src="../js/valoracion.js"></script><!-- Valorar las estrellas -->
+    <script type="text/javascript" src="../js/valoracion.js"></script><!-- Valorar las estrellas -->
     <!--CSS bootstrap-->
     <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
     <!-- Mensajes flash -->
@@ -132,12 +132,6 @@ $msg = new Messages();
                 <?php
 
                     include_once("../includes/valoracion.php");
-
-                    //------------------------------------------------------------------------
-                    // Muestra el mensaje flash
-                    //------------------------------------------------------------------------
-                    
-
                  ?>
              </div>
             
@@ -198,38 +192,14 @@ $msg = new Messages();
                 <h2>Criticas</h2></br></br>
                 <!-- Listado de los comentarios de la película obtenida de la BD -->
                 <?php
-                include_once("../config/database.php");
-                    $collection=$bd->criticas;
-                    $comenta = $collection->find(array('id_pelicula' => $_SESSION['id_pelicula']));
-                    $id_usuario;
-                    $critica;
-                    $username;
-                    foreach ($comenta as $campo => $valor) {
-                        foreach ($valor as $coment => $datos) {
-                            if($coment=="id_usuario"){
-                            
-                                $id_usuario=$datos; 
-                                $collection=$bd->usuarios;
-                                $usuarios = $collection->findOne(array('_id' => new MongoId($id_usuario)));
-                                foreach ($usuarios as $campo => $valor) {
-                                    if($campo=="usuario"){
-                                    
-                                        echo "<b>".$valor."</b><br/>";
-                                    }             
-                                    
-                                } 
-                            } 
-                            if($coment=="comentario"){
-                            
-                                echo $datos."<br/><br/><br/>";
-                            }
-                        }          
-                        
-                    }
+                    //$id_pelicula = $_SESSION['id_pelicula'];
+                    include_once("../includes/criticas.php");
+
                     //------------------------------------------------------------------------
                     // Muestra el mensaje flash
                     //------------------------------------------------------------------------
                     echo $msg->display();
+                    
                 ?>
             </div>
 
@@ -249,7 +219,7 @@ $msg = new Messages();
                         <div class="form-group">
                             <div class="input-group"  style="width:330px;">
                                 <textarea style="border-radius: 5px;width: 780px;" class="form-control" rows="2" name="<?php echo htmlspecialchars($_SESSION['id_usuario']); ?>"
-                                 id="critica" placeholder="Crítica"></textarea>
+                                 id="critica" placeholder="Crítica" required></textarea>
                             </div>
                         </div>
                         <button type="submit" id="enviarCritica" class="btn btn-primary" style="background:#66cccc;border:none;" name="<?php echo htmlspecialchars($_SESSION['id_pelicula']); ?>">

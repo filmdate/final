@@ -3,12 +3,11 @@
     include_once("../config/database.php");
     $id_pelicula;
 
-    if(isset($_GET['pelicula_id'])){
-
-        $id_pelicula=$_GET['pelicula_id'];           
+    if(isset($_GET['id_pelicula'])){
+        $id_pelicula=$_GET['id_pelicula'];           
     }
     $collection=$bd->criticas;
-    $comenta = $collection->find(array('id_pelicula' => $id_pelicula));
+    $comenta = $collection->find(array('id_pelicula' => "$id_pelicula"));
     $id_usuario;
     $critica;
     $username;

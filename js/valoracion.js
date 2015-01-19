@@ -44,8 +44,8 @@ $(document).ready(function() {
 		// creamos el objeto JSON para enviar a la página PHP
 	   	var datosClick = {
 
-	        pelicula_id : $(comentario).attr("name"), // le pasamos la id de la pelicula
-	        usuario_id : usu, // le pasamos la id de usuario
+	        id_pelicula : $(comentario).attr("name"), // le pasamos la id de la pelicula
+	        id_usuario : usu, // le pasamos la id de usuario
 	        contenido : document.getElementById("critica").value // le pasamos la critica realizada por el usuario
 
 	    };	    
@@ -61,15 +61,11 @@ $(document).ready(function() {
 		  	// función que se ejecutará cuando obtengamos la respuesta
 		  	success:function(data){
 
-		  		var id = $(comentario).attr("name");
+		  		var id = $("#enviarCritica").attr("name");
 		  		console.log(id);
 		  		$('#coment').load('../includes/criticas.php?id='+id);
 
 
-          	},
-          	error: function(data){
-
-          		alert("algo falla");
           	}
 
         });

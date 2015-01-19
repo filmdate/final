@@ -126,6 +126,12 @@ footer a:hover{
 	display: none;
 }
 
+#titulo h3{
+
+margin-top: 70px;
+color: #cccccc;
+
+}
 
 /* ************************************************************************************************
 											Selectores por CLASE
@@ -279,7 +285,11 @@ h4 a{
 	    color: #B2B2B2;
 	}	
 
-
+	  #titulo h3{
+	
+		margin-left: 30px;
+	
+  	}
 
 	.peli{
 		margin: 10px;
@@ -300,79 +310,58 @@ h4 a{
 		display: none;
 	}
 
+	.primary{
 
-} 
+		margin-left: 45px;
+
+	}
+
+	.secondary{
+
+		text-align: justify;
+		margin-right: 40px;
+		margin-left: 45px;
+		margin-bottom: 50px;
+
+	}
 
 
-
-/***************************/
-
-/* resets */
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
 }
 
-.clearfix:after,
-.clearfix:before{
-  content: "";
-  display: table;
-}
-.clearfix:after{
-    clear: both;
-}
-.clearfix{
-    *zoom: 1;
-}
-
-
-h1 {
-  font-family: "Lobster", cursive;
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-h2 {
-  font-weight: 700;
-}
-
-#titulo h3{
-	margin-left: 150px;
-	margin-top: 70px;
-	color: #cccccc;
-	
-}
-
-/* layout */
-.primary {
-	margin-top: 30px;
-  	margin-left: 150px;
-  	margin-bottom: 20px;
-  	height: 230px;
-}
-
-.secondary {
-	text-align: justify;
-	padding-right: 150px;
-	margin-top: 30px;
-	height: 230px;
-  	margin-bottom: 20px;
-}
-
+/* A partir de 600px tendrá este diseño */
 @media all and ( min-width: 600px ) {
   
   .container {
     padding-right: 0px;
   }
+
   .primary {
+
     float: left;
     padding-right: 60px;
     width: 15%;
+    margin-top: 30px;
+  	margin-left: 150px;
+  	margin-bottom: 20px;
+  	height: 230px;
   }
+
   .secondary {
+
+  	text-align: justify;
     float: right;
     margin-right: 0px;
     width: 70%;
+	padding-right: 150px;
+	margin-top: 30px;
+	height: 230px;
+  	margin-bottom: 20px;
+
   }
-  
+
+  #titulo h3{
+	
+	margin-left: 150px;
+	
+  }
 }

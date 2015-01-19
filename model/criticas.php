@@ -20,8 +20,8 @@ include_once("../funciones/usuarios.php");
 include_once("../funciones/peliculas.php");
 
 // Se obtienen los datos mediante ajax
-$id_usuario=$_POST['usuario_id'];
-$id_pelicula=$_POST['pelicula_id'];
+$id_usuario=$_POST['id_usuario'];
+$id_pelicula=$_POST['id_pelicula'];
 $comentario=$_POST['contenido'];
 
 // Establecemos la colección
@@ -83,7 +83,7 @@ else{ // Si el textarea no está vacío
 		$msg->add('e', 'ERROR: Al insertar datos!');
 
 		// Redirecciona al perfil de la película
-		//header('Location: ../views/perfil-peli.php?peli=$titulo');
+		header('Location: ../views/perfil-peli.php?peli=$titulo');
 
 		// Imprime un mensaje y termina el script actual
 		exit();
