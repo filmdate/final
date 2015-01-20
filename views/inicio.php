@@ -18,7 +18,9 @@
         <!--CSS bootstrap-->
         <link rel="stylesheet" type="text/css" href="../css/dist/css/bootstrap.css">
         <!-- jQuery para menu respontive -->
-        <script type="text/javascript" src="../js/menu.js"></script>         
+        <script type="text/javascript" src="../js/menu.js"></script> 
+        <!-- Tipografia de google, para el mouseover -->
+        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>        
 	</head> <!-- Cierre del encabezado de la página -->
 	
 	<!-- Cuerpo de toda la página -->
@@ -103,8 +105,10 @@
 
                                 $poster=$dato;
                                 echo "<a href='views/perfil-peli.php?peli=$titulo'>    
-                                <span class='text'>Informacion: ". $titulo. "</span><img src=$poster></a>";
-                                echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";                      
+                                <span class='text'>";
+                                    include_once("includes/mediaNota.php");
+                                echo"</span><img src=$poster></a>
+                                <h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";                      
 
                             }                            
 
