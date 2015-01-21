@@ -76,6 +76,8 @@
                     // Se importa mediante un css externo
                     echo "<link href=\"../css/main.css\" rel=\"stylesheet\" type=\"text/css\" >";
 
+                    include_once("funciones/peliculas.php");                    
+
                     // Establecemos la colección
                     $collection=$bd->peliculas;
 
@@ -89,10 +91,17 @@
 
                         foreach ($valor as $movie => $dato) {
 
+                            $id_pelicula;
                             $titulo;
                             $year;
                             $runtime;
                             $poster;
+
+                            if($movie=="_id"){
+
+                                $id_pelicula=$dato;
+
+                            }
 
                             if($movie=="title"){
 
@@ -106,7 +115,18 @@
                                 $poster=$dato;
                                 echo "<a href='views/perfil-peli.php?peli=$titulo'>    
                                 <span class='text'>";
-                                    include_once("includes/mediaNota.php");
+                                    //include_once("includes/mediaNota.php");
+                                    // Establecemos la colección
+                                    $collection=$bd->valoracion;
+
+                                    $media=mediaValoracion("$id_pelicula");
+
+                                    $media=$media*2;
+
+                                    $media=round($media,2);
+
+                                    echo $media;
+
                                 echo"</span><img src=$poster></a>
                                 <h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";                      
 
@@ -179,6 +199,8 @@
                                 
                                 // Cuando el usuario haga clic en la imágen o en el título irá al perfil de la película
                                 echo "<a href='views/perfil-peli.php?peli=$titulo'><img src=$poster></a>";
+
+                                
                                 echo "<h4><a href='views/perfil-peli.php?peli=$titulo'>" . $titulo. "</a></h4>";                      
 
                             }
